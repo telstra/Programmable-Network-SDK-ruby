@@ -4,12 +4,12 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_an_authentication_token**](AuthenticationApi.md#create_an_authentication_token) | **POST** /1.0.0/auth/generatetoken | Create an authentication token
-[**validate_authentication_token**](AuthenticationApi.md#validate_authentication_token) | **GET** /1.0.0/auth/validatetoken | Validate authentication token
+[**100_auth_generatetoken_post**](AuthenticationApi.md#100_auth_generatetoken_post) | **POST** /1.0.0/auth/generatetoken | Create an authentication token
+[**100_auth_validatetoken_get**](AuthenticationApi.md#100_auth_validatetoken_get) | **GET** /1.0.0/auth/validatetoken | Validate authentication token
 
 
-# **create_an_authentication_token**
-> Model100AuthGeneratetokenResponse create_an_authentication_token(grant_type, username, password)
+# **100_auth_generatetoken_post**
+> Model100AuthGeneratetokenResponse 100_auth_generatetoken_post(grant_type, username, password)
 
 Create an authentication token
 
@@ -19,11 +19,6 @@ Create an authentication token
 ```ruby
 # load the gem
 require 'TelstraTPN'
-# setup authorization
-TelstraTPN.configure do |config|
-  # Configure OAuth2 access token for authorization: auth
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
 api_instance = TelstraTPN::AuthenticationApi.new
 
@@ -36,10 +31,10 @@ password = "password_example" # String |
 
 begin
   #Create an authentication token
-  result = api_instance.create_an_authentication_token(grant_type, username, password)
+  result = api_instance.100_auth_generatetoken_post(grant_type, username, password)
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling AuthenticationApi->create_an_authentication_token: #{e}"
+  puts "Exception when calling AuthenticationApi->100_auth_generatetoken_post: #{e}"
 end
 ```
 
@@ -57,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -66,8 +61,8 @@ Name | Type | Description  | Notes
 
 
 
-# **validate_authentication_token**
-> Model100AuthValidatetokenResponse validate_authentication_token
+# **100_auth_validatetoken_get**
+> Model100AuthValidatetokenResponse 100_auth_validatetoken_get
 
 Validate authentication token
 
@@ -77,20 +72,15 @@ Validate the authentication token and get information about the user (roles, per
 ```ruby
 # load the gem
 require 'TelstraTPN'
-# setup authorization
-TelstraTPN.configure do |config|
-  # Configure OAuth2 access token for authorization: auth
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
 api_instance = TelstraTPN::AuthenticationApi.new
 
 begin
   #Validate authentication token
-  result = api_instance.validate_authentication_token
+  result = api_instance.100_auth_validatetoken_get
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling AuthenticationApi->validate_authentication_token: #{e}"
+  puts "Exception when calling AuthenticationApi->100_auth_validatetoken_get: #{e}"
 end
 ```
 
@@ -103,7 +93,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 

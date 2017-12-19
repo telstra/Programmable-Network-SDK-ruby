@@ -4,12 +4,12 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_account_information_details**](CustomersApi.md#get_account_information_details) | **GET** /1.0.0/account/{customeruuid} | Get account information details
-[**list_users**](CustomersApi.md#list_users) | **GET** /1.0.0/account/{customeruuid}/user | List users
+[**100_account_by_customeruuid_get**](CustomersApi.md#100_account_by_customeruuid_get) | **GET** /1.0.0/account/{customeruuid} | Get account information details
+[**100_account_user_by_customeruuid_get**](CustomersApi.md#100_account_user_by_customeruuid_get) | **GET** /1.0.0/account/{customeruuid}/user | List users
 
 
-# **get_account_information_details**
-> Model100AccountResponse get_account_information_details(customeruuid)
+# **100_account_by_customeruuid_get**
+> Model100AccountResponse 100_account_by_customeruuid_get(customeruuid)
 
 Get account information details
 
@@ -19,11 +19,6 @@ Get the account information for the specified customer
 ```ruby
 # load the gem
 require 'TelstraTPN'
-# setup authorization
-TelstraTPN.configure do |config|
-  # Configure OAuth2 access token for authorization: auth
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
 api_instance = TelstraTPN::CustomersApi.new
 
@@ -32,10 +27,10 @@ customeruuid = "customeruuid_example" # String | Unique identifier representing 
 
 begin
   #Get account information details
-  result = api_instance.get_account_information_details(customeruuid)
+  result = api_instance.100_account_by_customeruuid_get(customeruuid)
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling CustomersApi->get_account_information_details: #{e}"
+  puts "Exception when calling CustomersApi->100_account_by_customeruuid_get: #{e}"
 end
 ```
 
@@ -51,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -60,8 +55,8 @@ Name | Type | Description  | Notes
 
 
 
-# **list_users**
-> Array&lt;User&gt; list_users(customeruuid)
+# **100_account_user_by_customeruuid_get**
+> Array&lt;User&gt; 100_account_user_by_customeruuid_get(customeruuid)
 
 List users
 
@@ -71,11 +66,6 @@ List all users associated with the specified customer
 ```ruby
 # load the gem
 require 'TelstraTPN'
-# setup authorization
-TelstraTPN.configure do |config|
-  # Configure OAuth2 access token for authorization: auth
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
 api_instance = TelstraTPN::CustomersApi.new
 
@@ -84,10 +74,10 @@ customeruuid = "customeruuid_example" # String | Unique identifier representing 
 
 begin
   #List users
-  result = api_instance.list_users(customeruuid)
+  result = api_instance.100_account_user_by_customeruuid_get(customeruuid)
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling CustomersApi->list_users: #{e}"
+  puts "Exception when calling CustomersApi->100_account_user_by_customeruuid_get: #{e}"
 end
 ```
 
@@ -103,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 

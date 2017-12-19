@@ -4,14 +4,14 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_link_and_initial_contract**](LinksApi.md#create_link_and_initial_contract) | **POST** /1.0.0/inventory/link | Create Link and initial Contract
-[**get_active_links**](LinksApi.md#get_active_links) | **GET** /1.0.0/inventory/links/customer/{customeruuid} | Get active Links
-[**get_details_of_specified_link**](LinksApi.md#get_details_of_specified_link) | **GET** /1.0.0/inventory/links/{linkid} | Get details of specified link
-[**get_link_history**](LinksApi.md#get_link_history) | **GET** /1.0.0/inventory/links/history/{linkid} | Get Link history
+[**100_inventory_link_post**](LinksApi.md#100_inventory_link_post) | **POST** /1.0.0/inventory/link | Create Link and initial Contract
+[**100_inventory_links_by_linkid_get**](LinksApi.md#100_inventory_links_by_linkid_get) | **GET** /1.0.0/inventory/links/{linkid} | Get details of specified link
+[**100_inventory_links_customer_by_customeruuid_get**](LinksApi.md#100_inventory_links_customer_by_customeruuid_get) | **GET** /1.0.0/inventory/links/customer/{customeruuid} | Get active Links
+[**100_inventory_links_history_by_linkid_get**](LinksApi.md#100_inventory_links_history_by_linkid_get) | **GET** /1.0.0/inventory/links/history/{linkid} | Get Link history
 
 
-# **create_link_and_initial_contract**
-> Model100InventoryLinkResponse create_link_and_initial_contract(opts)
+# **100_inventory_link_post**
+> Model100InventoryLinkResponse 100_inventory_link_post(opts)
 
 Create Link and initial Contract
 
@@ -21,11 +21,6 @@ Create Link and initial Contract
 ```ruby
 # load the gem
 require 'TelstraTPN'
-# setup authorization
-TelstraTPN.configure do |config|
-  # Configure OAuth2 access token for authorization: auth
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
 api_instance = TelstraTPN::LinksApi.new
 
@@ -35,10 +30,10 @@ opts = {
 
 begin
   #Create Link and initial Contract
-  result = api_instance.create_link_and_initial_contract(opts)
+  result = api_instance.100_inventory_link_post(opts)
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling LinksApi->create_link_and_initial_contract: #{e}"
+  puts "Exception when calling LinksApi->100_inventory_link_post: #{e}"
 end
 ```
 
@@ -54,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -63,60 +58,8 @@ Name | Type | Description  | Notes
 
 
 
-# **get_active_links**
-> Array&lt;Link&gt; get_active_links(customeruuid)
-
-Get active Links
-
-Get active Links
-
-### Example
-```ruby
-# load the gem
-require 'TelstraTPN'
-# setup authorization
-TelstraTPN.configure do |config|
-  # Configure OAuth2 access token for authorization: auth
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
-
-api_instance = TelstraTPN::LinksApi.new
-
-customeruuid = "customeruuid_example" # String | Unique identifier representing a specific customer
-
-
-begin
-  #Get active Links
-  result = api_instance.get_active_links(customeruuid)
-  p result
-rescue TelstraTPN::ApiError => e
-  puts "Exception when calling LinksApi->get_active_links: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customeruuid** | **String**| Unique identifier representing a specific customer | 
-
-### Return type
-
-[**Array&lt;Link&gt;**](Link.md)
-
-### Authorization
-
-[auth](../README.md#auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-
-# **get_details_of_specified_link**
-> Model100InventoryLinksResponse get_details_of_specified_link(linkid)
+# **100_inventory_links_by_linkid_get**
+> Model100InventoryLinksResponse 100_inventory_links_by_linkid_get(linkid)
 
 Get details of specified link
 
@@ -126,11 +69,6 @@ Get details of specified link
 ```ruby
 # load the gem
 require 'TelstraTPN'
-# setup authorization
-TelstraTPN.configure do |config|
-  # Configure OAuth2 access token for authorization: auth
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
 api_instance = TelstraTPN::LinksApi.new
 
@@ -139,10 +77,10 @@ linkid = "linkid_example" # String | Unique identifier representing a specific l
 
 begin
   #Get details of specified link
-  result = api_instance.get_details_of_specified_link(linkid)
+  result = api_instance.100_inventory_links_by_linkid_get(linkid)
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling LinksApi->get_details_of_specified_link: #{e}"
+  puts "Exception when calling LinksApi->100_inventory_links_by_linkid_get: #{e}"
 end
 ```
 
@@ -158,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -167,8 +105,55 @@ Name | Type | Description  | Notes
 
 
 
-# **get_link_history**
-> Model100InventoryLinksHistoryResponse get_link_history(linkid)
+# **100_inventory_links_customer_by_customeruuid_get**
+> Array&lt;Link&gt; 100_inventory_links_customer_by_customeruuid_get(customeruuid)
+
+Get active Links
+
+Get active Links
+
+### Example
+```ruby
+# load the gem
+require 'TelstraTPN'
+
+api_instance = TelstraTPN::LinksApi.new
+
+customeruuid = "customeruuid_example" # String | Unique identifier representing a specific customer
+
+
+begin
+  #Get active Links
+  result = api_instance.100_inventory_links_customer_by_customeruuid_get(customeruuid)
+  p result
+rescue TelstraTPN::ApiError => e
+  puts "Exception when calling LinksApi->100_inventory_links_customer_by_customeruuid_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customeruuid** | **String**| Unique identifier representing a specific customer | 
+
+### Return type
+
+[**Array&lt;Link&gt;**](Link.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **100_inventory_links_history_by_linkid_get**
+> Model100InventoryLinksHistoryResponse 100_inventory_links_history_by_linkid_get(linkid)
 
 Get Link history
 
@@ -178,11 +163,6 @@ Get Link history
 ```ruby
 # load the gem
 require 'TelstraTPN'
-# setup authorization
-TelstraTPN.configure do |config|
-  # Configure OAuth2 access token for authorization: auth
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
 api_instance = TelstraTPN::LinksApi.new
 
@@ -191,10 +171,10 @@ linkid = "linkid_example" # String | Unique identifier representing a specific l
 
 begin
   #Get Link history
-  result = api_instance.get_link_history(linkid)
+  result = api_instance.100_inventory_links_history_by_linkid_get(linkid)
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling LinksApi->get_link_history: #{e}"
+  puts "Exception when calling LinksApi->100_inventory_links_history_by_linkid_get: #{e}"
 end
 ```
 
@@ -210,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 

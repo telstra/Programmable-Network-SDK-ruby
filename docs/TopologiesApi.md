@@ -4,41 +4,36 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_a_named_topology_tag**](TopologiesApi.md#create_a_named_topology_tag) | **POST** /ttms/1.0.0/topology_tag | Create a named topology tag
-[**get_information_about_the_specified_topology_tag**](TopologiesApi.md#get_information_about_the_specified_topology_tag) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/ | Get information about the specified topology tag
-[**list_all_topology_tags**](TopologiesApi.md#list_all_topology_tags) | **GET** /ttms/1.0.0/topology_tag | List all topology tags
-[**list_objects_for_topology**](TopologiesApi.md#list_objects_for_topology) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/objects/ | List objects for Topology
+[**ttms100_topology_tag_by_topotaguuid_delete**](TopologiesApi.md#ttms100_topology_tag_by_topotaguuid_delete) | **DELETE** /ttms/1.0.0/topology_tag/{topotaguuid}/ | Delete a topology tag
+[**ttms100_topology_tag_by_topotaguuid_get**](TopologiesApi.md#ttms100_topology_tag_by_topotaguuid_get) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/ | Get information about the specified topology tag
+[**ttms100_topology_tag_by_topotaguuid_put**](TopologiesApi.md#ttms100_topology_tag_by_topotaguuid_put) | **PUT** /ttms/1.0.0/topology_tag/{topotaguuid}/ | Update a topology tag&#39;s name and/or description
+[**ttms100_topology_tag_get**](TopologiesApi.md#ttms100_topology_tag_get) | **GET** /ttms/1.0.0/topology_tag | List all topology tags
+[**ttms100_topology_tag_objects_by_topotaguuid_get**](TopologiesApi.md#ttms100_topology_tag_objects_by_topotaguuid_get) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/objects/ | List objects for Topology
+[**ttms100_topology_tag_post**](TopologiesApi.md#ttms100_topology_tag_post) | **POST** /ttms/1.0.0/topology_tag | Create a named topology tag
 
 
-# **create_a_named_topology_tag**
-> Topology create_a_named_topology_tag(opts)
+# **ttms100_topology_tag_by_topotaguuid_delete**
+> ttms100_topology_tag_by_topotaguuid_delete(topotaguuid)
 
-Create a named topology tag
+Delete a topology tag
 
-Create a named topology tag
+Delete a topology tag
 
 ### Example
 ```ruby
 # load the gem
 require 'TelstraTPN'
-# setup authorization
-TelstraTPN.configure do |config|
-  # Configure OAuth2 access token for authorization: auth
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
 api_instance = TelstraTPN::TopologiesApi.new
 
-opts = { 
-  body: TelstraTPN::Ttms100TopologyTagRequest.new # Ttms100TopologyTagRequest | 
-}
+topotaguuid = "topotaguuid_example" # String | Unique identifier representing a specific topology tag
+
 
 begin
-  #Create a named topology tag
-  result = api_instance.create_a_named_topology_tag(opts)
-  p result
+  #Delete a topology tag
+  api_instance.ttms100_topology_tag_by_topotaguuid_delete(topotaguuid)
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling TopologiesApi->create_a_named_topology_tag: #{e}"
+  puts "Exception when calling TopologiesApi->ttms100_topology_tag_by_topotaguuid_delete: #{e}"
 end
 ```
 
@@ -46,15 +41,15 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Ttms100TopologyTagRequest**](Ttms100TopologyTagRequest.md)|  | [optional] 
+ **topotaguuid** | **String**| Unique identifier representing a specific topology tag | 
 
 ### Return type
 
-[**Topology**](Topology.md)
+nil (empty response body)
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -63,8 +58,8 @@ Name | Type | Description  | Notes
 
 
 
-# **get_information_about_the_specified_topology_tag**
-> Topology get_information_about_the_specified_topology_tag(topotaguuid)
+# **ttms100_topology_tag_by_topotaguuid_get**
+> Topology ttms100_topology_tag_by_topotaguuid_get(topotaguuid)
 
 Get information about the specified topology tag
 
@@ -74,11 +69,6 @@ Get information about the specified topology tag
 ```ruby
 # load the gem
 require 'TelstraTPN'
-# setup authorization
-TelstraTPN.configure do |config|
-  # Configure OAuth2 access token for authorization: auth
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
 api_instance = TelstraTPN::TopologiesApi.new
 
@@ -87,10 +77,10 @@ topotaguuid = "topotaguuid_example" # String | Unique identifier representing a 
 
 begin
   #Get information about the specified topology tag
-  result = api_instance.get_information_about_the_specified_topology_tag(topotaguuid)
+  result = api_instance.ttms100_topology_tag_by_topotaguuid_get(topotaguuid)
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling TopologiesApi->get_information_about_the_specified_topology_tag: #{e}"
+  puts "Exception when calling TopologiesApi->ttms100_topology_tag_by_topotaguuid_get: #{e}"
 end
 ```
 
@@ -106,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -115,8 +105,59 @@ Name | Type | Description  | Notes
 
 
 
-# **list_all_topology_tags**
-> Array&lt;Topology&gt; list_all_topology_tags
+# **ttms100_topology_tag_by_topotaguuid_put**
+> Topology ttms100_topology_tag_by_topotaguuid_put(topotaguuid, opts)
+
+Update a topology tag's name and/or description
+
+Update a topology tag's name and/or description
+
+### Example
+```ruby
+# load the gem
+require 'TelstraTPN'
+
+api_instance = TelstraTPN::TopologiesApi.new
+
+topotaguuid = "topotaguuid_example" # String | Unique identifier representing a specific topology tag
+
+opts = { 
+  body: TelstraTPN::Ttms100TopologyTagRequest.new # Ttms100TopologyTagRequest | 
+}
+
+begin
+  #Update a topology tag's name and/or description
+  result = api_instance.ttms100_topology_tag_by_topotaguuid_put(topotaguuid, opts)
+  p result
+rescue TelstraTPN::ApiError => e
+  puts "Exception when calling TopologiesApi->ttms100_topology_tag_by_topotaguuid_put: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **topotaguuid** | **String**| Unique identifier representing a specific topology tag | 
+ **body** | [**Ttms100TopologyTagRequest**](Ttms100TopologyTagRequest.md)|  | [optional] 
+
+### Return type
+
+[**Topology**](Topology.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **ttms100_topology_tag_get**
+> Array&lt;Topology&gt; ttms100_topology_tag_get
 
 List all topology tags
 
@@ -126,20 +167,15 @@ List all topology tags
 ```ruby
 # load the gem
 require 'TelstraTPN'
-# setup authorization
-TelstraTPN.configure do |config|
-  # Configure OAuth2 access token for authorization: auth
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
 api_instance = TelstraTPN::TopologiesApi.new
 
 begin
   #List all topology tags
-  result = api_instance.list_all_topology_tags
+  result = api_instance.ttms100_topology_tag_get
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling TopologiesApi->list_all_topology_tags: #{e}"
+  puts "Exception when calling TopologiesApi->ttms100_topology_tag_get: #{e}"
 end
 ```
 
@@ -152,7 +188,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -161,8 +197,8 @@ This endpoint does not need any parameter.
 
 
 
-# **list_objects_for_topology**
-> Ttms100TopologyTagObjectsResponse list_objects_for_topology(topotaguuid)
+# **ttms100_topology_tag_objects_by_topotaguuid_get**
+> Ttms100TopologyTagObjectsResponse ttms100_topology_tag_objects_by_topotaguuid_get(topotaguuid)
 
 List objects for Topology
 
@@ -172,11 +208,6 @@ List all objects (Endpoints, Links, VPorts, etc.) associated with the topology t
 ```ruby
 # load the gem
 require 'TelstraTPN'
-# setup authorization
-TelstraTPN.configure do |config|
-  # Configure OAuth2 access token for authorization: auth
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
 api_instance = TelstraTPN::TopologiesApi.new
 
@@ -185,10 +216,10 @@ topotaguuid = "topotaguuid_example" # String | Unique identifier representing a 
 
 begin
   #List objects for Topology
-  result = api_instance.list_objects_for_topology(topotaguuid)
+  result = api_instance.ttms100_topology_tag_objects_by_topotaguuid_get(topotaguuid)
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling TopologiesApi->list_objects_for_topology: #{e}"
+  puts "Exception when calling TopologiesApi->ttms100_topology_tag_objects_by_topotaguuid_get: #{e}"
 end
 ```
 
@@ -204,7 +235,55 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **ttms100_topology_tag_post**
+> Topology ttms100_topology_tag_post(opts)
+
+Create a named topology tag
+
+Create a named topology tag
+
+### Example
+```ruby
+# load the gem
+require 'TelstraTPN'
+
+api_instance = TelstraTPN::TopologiesApi.new
+
+opts = { 
+  body: TelstraTPN::Ttms100TopologyTagRequest.new # Ttms100TopologyTagRequest | 
+}
+
+begin
+  #Create a named topology tag
+  result = api_instance.ttms100_topology_tag_post(opts)
+  p result
+rescue TelstraTPN::ApiError => e
+  puts "Exception when calling TopologiesApi->ttms100_topology_tag_post: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Ttms100TopologyTagRequest**](Ttms100TopologyTagRequest.md)|  | [optional] 
+
+### Return type
+
+[**Topology**](Topology.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

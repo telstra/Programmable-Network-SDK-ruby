@@ -1,10 +1,10 @@
-# Telstra Programmable Network
+# TelstraTPN
 
 TelstraTPN - the Ruby gem for the Telstra Programmable Network API
 
 Telstra Programmable Network is a self-provisioning platform that allows its users to create on-demand connectivity services between multiple end-points and add various network functions to those services. Programmable Network enables to connectivity to a global ecosystem of networking services as well as public and private cloud services. Once you are connected to the platform on one or more POPs (points of presence), you can start creating those services based on the use case that you want to accomplish. The Programmable Network API is available to all customers who have registered to use the Programmable Network. To register, please contact your account representative.
 
-- API version: 2.1.2
+- API version: 2.1.3
 - Package version: 1.0.0
 
 ## Installation
@@ -51,15 +51,9 @@ Please follow the [installation](#installation) procedure and then run the follo
 # Load the gem
 require 'TelstraTPN'
 
-# Setup authorization
-TelstraTPN.configure do |config|
-  # Configure OAuth2 access token for authorization: auth
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
-
 api_instance = TelstraTPN::AuthenticationApi.new
 
-grant_type = "grant_type_example" # String | 
+grant_type = "password" # String | 
 
 username = "username_example" # String | 
 
@@ -68,10 +62,10 @@ password = "password_example" # String |
 
 begin
   #Create an authentication token
-  result = api_instance.create_an_authentication_token(grant_type, username, password)
+  result = api_instance.100_auth_generatetoken_post(grant_type, username, password)
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling AuthenticationApi->create_an_authentication_token: #{e}"
+  puts "Exception when calling AuthenticationApi->100_auth_generatetoken_post: #{e}"
 end
 
 ```
@@ -82,30 +76,33 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*TelstraTPN::AuthenticationApi* | [**create_an_authentication_token**](docs/AuthenticationApi.md#create_an_authentication_token) | **POST** /1.0.0/auth/generatetoken | Create an authentication token
-*TelstraTPN::AuthenticationApi* | [**validate_authentication_token**](docs/AuthenticationApi.md#validate_authentication_token) | **GET** /1.0.0/auth/validatetoken | Validate authentication token
-*TelstraTPN::ContractsApi* | [**create_new_contract_on_specified_link**](docs/ContractsApi.md#create_new_contract_on_specified_link) | **POST** /1.0.0/inventory/links/{linkid}/contract | Create new Contract on specified link
-*TelstraTPN::ContractsApi* | [**get_active_contract_by_contract_id**](docs/ContractsApi.md#get_active_contract_by_contract_id) | **GET** /1.0.0/inventory/links/{linkid}/contract/{contractid} | Get active Contract by ContractID
-*TelstraTPN::ContractsApi* | [**update_active_contract_by_contract_id**](docs/ContractsApi.md#update_active_contract_by_contract_id) | **PUT** /1.0.0/inventory/links/{linkid}/contract/{contractid} | Update active Contract by ContractID
-*TelstraTPN::CustomersApi* | [**get_account_information_details**](docs/CustomersApi.md#get_account_information_details) | **GET** /1.0.0/account/{customeruuid} | Get account information details
-*TelstraTPN::CustomersApi* | [**list_users**](docs/CustomersApi.md#list_users) | **GET** /1.0.0/account/{customeruuid}/user | List users
-*TelstraTPN::DatacentresApi* | [**get_list_of_all_the_data_centers**](docs/DatacentresApi.md#get_list_of_all_the_data_centers) | **GET** /1.0.0/inventory/datacenters | Get list of all the data centers
-*TelstraTPN::EndpointsApi* | [**create_physical__port_endpoint**](docs/EndpointsApi.md#create_physical__port_endpoint) | **POST** /1.0.0/inventory/regularendpoint | Create Physical (Port) Endpoint
-*TelstraTPN::EndpointsApi* | [**create_vnf_endpoint**](docs/EndpointsApi.md#create_vnf_endpoint) | **POST** /1.0.0/inventory/vnfendpoint | Create VNF Endpoint
-*TelstraTPN::EndpointsApi* | [**get_information_about_the_specified_endpoint**](docs/EndpointsApi.md#get_information_about_the_specified_endpoint) | **GET** /1.0.0/inventory/endpoint/{endpointuuid} | Get information about the specified endpoint
-*TelstraTPN::EndpointsApi* | [**get_list_of_endpoints_for_a_customer**](docs/EndpointsApi.md#get_list_of_endpoints_for_a_customer) | **GET** /1.0.0/inventory/endpoints/customeruuid/{customeruuid} | Get list of endpoints for a customer
-*TelstraTPN::LinksApi* | [**create_link_and_initial_contract**](docs/LinksApi.md#create_link_and_initial_contract) | **POST** /1.0.0/inventory/link | Create Link and initial Contract
-*TelstraTPN::LinksApi* | [**get_active_links**](docs/LinksApi.md#get_active_links) | **GET** /1.0.0/inventory/links/customer/{customeruuid} | Get active Links
-*TelstraTPN::LinksApi* | [**get_details_of_specified_link**](docs/LinksApi.md#get_details_of_specified_link) | **GET** /1.0.0/inventory/links/{linkid} | Get details of specified link
-*TelstraTPN::LinksApi* | [**get_link_history**](docs/LinksApi.md#get_link_history) | **GET** /1.0.0/inventory/links/history/{linkid} | Get Link history
-*TelstraTPN::TopologiesApi* | [**create_a_named_topology_tag**](docs/TopologiesApi.md#create_a_named_topology_tag) | **POST** /ttms/1.0.0/topology_tag | Create a named topology tag
-*TelstraTPN::TopologiesApi* | [**get_information_about_the_specified_topology_tag**](docs/TopologiesApi.md#get_information_about_the_specified_topology_tag) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/ | Get information about the specified topology tag
-*TelstraTPN::TopologiesApi* | [**list_all_topology_tags**](docs/TopologiesApi.md#list_all_topology_tags) | **GET** /ttms/1.0.0/topology_tag | List all topology tags
-*TelstraTPN::TopologiesApi* | [**list_objects_for_topology**](docs/TopologiesApi.md#list_objects_for_topology) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/objects/ | List objects for Topology
-*TelstraTPN::VnfsApi* | [**list_images_in_the_marketplace**](docs/VnfsApi.md#list_images_in_the_marketplace) | **GET** /1.0.0/marketplace/image | List images in the Marketplace
-*TelstraTPN::VportsApi* | [**create_v_port_for_physical_endpoint**](docs/VportsApi.md#create_v_port_for_physical_endpoint) | **POST** /1.0.0/inventory/regularvport | Create VPort for physical endpoint
-*TelstraTPN::VportsApi* | [**create_vnf_v_port**](docs/VportsApi.md#create_vnf_v_port) | **POST** /1.0.0/inventory/vnf/vport | Create VNF VPort
-*TelstraTPN::VportsApi* | [**get_information_about_the_specified_v_port**](docs/VportsApi.md#get_information_about_the_specified_v_port) | **GET** /1.0.0/inventory/vport/{vportuuid} | Get information about the specified VPort
+*TelstraTPN::AuthenticationApi* | [**100_auth_generatetoken_post**](docs/AuthenticationApi.md#100_auth_generatetoken_post) | **POST** /1.0.0/auth/generatetoken | Create an authentication token
+*TelstraTPN::AuthenticationApi* | [**100_auth_validatetoken_get**](docs/AuthenticationApi.md#100_auth_validatetoken_get) | **GET** /1.0.0/auth/validatetoken | Validate authentication token
+*TelstraTPN::ContractsApi* | [**100_inventory_links_contract_by_linkid_and_contractid_get**](docs/ContractsApi.md#100_inventory_links_contract_by_linkid_and_contractid_get) | **GET** /1.0.0/inventory/links/{linkid}/contract/{contractid} | Get active Contract by ContractID
+*TelstraTPN::ContractsApi* | [**100_inventory_links_contract_by_linkid_and_contractid_put**](docs/ContractsApi.md#100_inventory_links_contract_by_linkid_and_contractid_put) | **PUT** /1.0.0/inventory/links/{linkid}/contract/{contractid} | Update active Contract by ContractID
+*TelstraTPN::ContractsApi* | [**100_inventory_links_contract_by_linkid_post**](docs/ContractsApi.md#100_inventory_links_contract_by_linkid_post) | **POST** /1.0.0/inventory/links/{linkid}/contract | Create new Contract on specified link
+*TelstraTPN::CustomersApi* | [**100_account_by_customeruuid_get**](docs/CustomersApi.md#100_account_by_customeruuid_get) | **GET** /1.0.0/account/{customeruuid} | Get account information details
+*TelstraTPN::CustomersApi* | [**100_account_user_by_customeruuid_get**](docs/CustomersApi.md#100_account_user_by_customeruuid_get) | **GET** /1.0.0/account/{customeruuid}/user | List users
+*TelstraTPN::DatacentresApi* | [**100_inventory_datacenters_get**](docs/DatacentresApi.md#100_inventory_datacenters_get) | **GET** /1.0.0/inventory/datacenters | Get list of all the data centers
+*TelstraTPN::EndpointsApi* | [**100_inventory_endpoint_by_endpointuuid_get**](docs/EndpointsApi.md#100_inventory_endpoint_by_endpointuuid_get) | **GET** /1.0.0/inventory/endpoint/{endpointuuid} | Get information about the specified endpoint
+*TelstraTPN::EndpointsApi* | [**100_inventory_endpoints_customeruuid_by_customeruuid_get**](docs/EndpointsApi.md#100_inventory_endpoints_customeruuid_by_customeruuid_get) | **GET** /1.0.0/inventory/endpoints/customeruuid/{customeruuid} | Get list of endpoints for a customer
+*TelstraTPN::EndpointsApi* | [**100_inventory_regularendpoint_post**](docs/EndpointsApi.md#100_inventory_regularendpoint_post) | **POST** /1.0.0/inventory/regularendpoint | Create Physical (Port) Endpoint
+*TelstraTPN::EndpointsApi* | [**100_inventory_vnfendpoint_post**](docs/EndpointsApi.md#100_inventory_vnfendpoint_post) | **POST** /1.0.0/inventory/vnfendpoint | Create VNF Endpoint
+*TelstraTPN::EndpointsApi* | [**eis100_endpoints_assign_topology_tag_by_endpointuuid_post**](docs/EndpointsApi.md#eis100_endpoints_assign_topology_tag_by_endpointuuid_post) | **POST** /eis/1.0.0/endpoints/{endpointuuid}/assign_topology_tag | Assign a Topology Tag to an Endpoint
+*TelstraTPN::LinksApi* | [**100_inventory_link_post**](docs/LinksApi.md#100_inventory_link_post) | **POST** /1.0.0/inventory/link | Create Link and initial Contract
+*TelstraTPN::LinksApi* | [**100_inventory_links_by_linkid_get**](docs/LinksApi.md#100_inventory_links_by_linkid_get) | **GET** /1.0.0/inventory/links/{linkid} | Get details of specified link
+*TelstraTPN::LinksApi* | [**100_inventory_links_customer_by_customeruuid_get**](docs/LinksApi.md#100_inventory_links_customer_by_customeruuid_get) | **GET** /1.0.0/inventory/links/customer/{customeruuid} | Get active Links
+*TelstraTPN::LinksApi* | [**100_inventory_links_history_by_linkid_get**](docs/LinksApi.md#100_inventory_links_history_by_linkid_get) | **GET** /1.0.0/inventory/links/history/{linkid} | Get Link history
+*TelstraTPN::TopologiesApi* | [**ttms100_topology_tag_by_topotaguuid_delete**](docs/TopologiesApi.md#ttms100_topology_tag_by_topotaguuid_delete) | **DELETE** /ttms/1.0.0/topology_tag/{topotaguuid}/ | Delete a topology tag
+*TelstraTPN::TopologiesApi* | [**ttms100_topology_tag_by_topotaguuid_get**](docs/TopologiesApi.md#ttms100_topology_tag_by_topotaguuid_get) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/ | Get information about the specified topology tag
+*TelstraTPN::TopologiesApi* | [**ttms100_topology_tag_by_topotaguuid_put**](docs/TopologiesApi.md#ttms100_topology_tag_by_topotaguuid_put) | **PUT** /ttms/1.0.0/topology_tag/{topotaguuid}/ | Update a topology tag's name and/or description
+*TelstraTPN::TopologiesApi* | [**ttms100_topology_tag_get**](docs/TopologiesApi.md#ttms100_topology_tag_get) | **GET** /ttms/1.0.0/topology_tag | List all topology tags
+*TelstraTPN::TopologiesApi* | [**ttms100_topology_tag_objects_by_topotaguuid_get**](docs/TopologiesApi.md#ttms100_topology_tag_objects_by_topotaguuid_get) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/objects/ | List objects for Topology
+*TelstraTPN::TopologiesApi* | [**ttms100_topology_tag_post**](docs/TopologiesApi.md#ttms100_topology_tag_post) | **POST** /ttms/1.0.0/topology_tag | Create a named topology tag
+*TelstraTPN::VnfsApi* | [**100_marketplace_image_get**](docs/VnfsApi.md#100_marketplace_image_get) | **GET** /1.0.0/marketplace/image | List images in the Marketplace
+*TelstraTPN::VportsApi* | [**100_inventory_regularvport_post**](docs/VportsApi.md#100_inventory_regularvport_post) | **POST** /1.0.0/inventory/regularvport | Create VPort for physical endpoint
+*TelstraTPN::VportsApi* | [**100_inventory_vnf_vport_post**](docs/VportsApi.md#100_inventory_vnf_vport_post) | **POST** /1.0.0/inventory/vnf/vport | Create VNF VPort
+*TelstraTPN::VportsApi* | [**100_inventory_vport_by_vportuuid_get**](docs/VportsApi.md#100_inventory_vport_by_vportuuid_get) | **GET** /1.0.0/inventory/vport/{vportuuid} | Get information about the specified VPort
 
 
 ## Documentation for Models
@@ -114,15 +111,16 @@ Class | Method | HTTP request | Description
  - [TelstraTPN::Classification](docs/Classification.md)
  - [TelstraTPN::Contract](docs/Contract.md)
  - [TelstraTPN::Datacenter](docs/Datacenter.md)
+ - [TelstraTPN::Eis100EndpointsAssignTopologyTagRequest](docs/Eis100EndpointsAssignTopologyTagRequest.md)
  - [TelstraTPN::Endpoint](docs/Endpoint.md)
  - [TelstraTPN::EndpointPort](docs/EndpointPort.md)
  - [TelstraTPN::Endpointlist](docs/Endpointlist.md)
  - [TelstraTPN::Error](docs/Error.md)
- - [TelstraTPN::Error70](docs/Error70.md)
+ - [TelstraTPN::Error74](docs/Error74.md)
  - [TelstraTPN::Flavor](docs/Flavor.md)
  - [TelstraTPN::GlanceImage](docs/GlanceImage.md)
  - [TelstraTPN::Link](docs/Link.md)
- - [TelstraTPN::Link62](docs/Link62.md)
+ - [TelstraTPN::Link66](docs/Link66.md)
  - [TelstraTPN::Meta](docs/Meta.md)
  - [TelstraTPN::Model100AccountResponse](docs/Model100AccountResponse.md)
  - [TelstraTPN::Model100AuthGeneratetokenResponse](docs/Model100AuthGeneratetokenResponse.md)
@@ -134,10 +132,10 @@ Class | Method | HTTP request | Description
  - [TelstraTPN::Model100InventoryLinkRequest](docs/Model100InventoryLinkRequest.md)
  - [TelstraTPN::Model100InventoryLinkResponse](docs/Model100InventoryLinkResponse.md)
  - [TelstraTPN::Model100InventoryLinksContractRequest](docs/Model100InventoryLinksContractRequest.md)
- - [TelstraTPN::Model100InventoryLinksContractRequest35](docs/Model100InventoryLinksContractRequest35.md)
+ - [TelstraTPN::Model100InventoryLinksContractRequest37](docs/Model100InventoryLinksContractRequest37.md)
  - [TelstraTPN::Model100InventoryLinksContractResponse](docs/Model100InventoryLinksContractResponse.md)
- - [TelstraTPN::Model100InventoryLinksContractResponse31](docs/Model100InventoryLinksContractResponse31.md)
- - [TelstraTPN::Model100InventoryLinksContractResponse36](docs/Model100InventoryLinksContractResponse36.md)
+ - [TelstraTPN::Model100InventoryLinksContractResponse33](docs/Model100InventoryLinksContractResponse33.md)
+ - [TelstraTPN::Model100InventoryLinksContractResponse38](docs/Model100InventoryLinksContractResponse38.md)
  - [TelstraTPN::Model100InventoryLinksHistoryResponse](docs/Model100InventoryLinksHistoryResponse.md)
  - [TelstraTPN::Model100InventoryLinksResponse](docs/Model100InventoryLinksResponse.md)
  - [TelstraTPN::Model100InventoryRegularendpointRequest](docs/Model100InventoryRegularendpointRequest.md)
@@ -149,11 +147,11 @@ Class | Method | HTTP request | Description
  - [TelstraTPN::Model100InventoryVnfendpointRequest](docs/Model100InventoryVnfendpointRequest.md)
  - [TelstraTPN::Model100InventoryVnfendpointResponse](docs/Model100InventoryVnfendpointResponse.md)
  - [TelstraTPN::Model100MarketplaceImageResponse](docs/Model100MarketplaceImageResponse.md)
- - [TelstraTPN::Object50](docs/Object50.md)
+ - [TelstraTPN::Object52](docs/Object52.md)
  - [TelstraTPN::Params](docs/Params.md)
- - [TelstraTPN::Params29](docs/Params29.md)
- - [TelstraTPN::Params32](docs/Params32.md)
- - [TelstraTPN::Params37](docs/Params37.md)
+ - [TelstraTPN::Params31](docs/Params31.md)
+ - [TelstraTPN::Params34](docs/Params34.md)
+ - [TelstraTPN::Params39](docs/Params39.md)
  - [TelstraTPN::Product](docs/Product.md)
  - [TelstraTPN::Role](docs/Role.md)
  - [TelstraTPN::SuccessFragment](docs/SuccessFragment.md)
@@ -166,14 +164,4 @@ Class | Method | HTTP request | Description
  - [TelstraTPN::Vport](docs/Vport.md)
  - [TelstraTPN::Vportvalue](docs/Vportvalue.md)
 
-
-## Documentation for Authorization
-
-
-### auth
-
-- **Type**: OAuth
-- **Flow**: password
-- **Authorization URL**: 
-- **Scopes**: N/A
 
