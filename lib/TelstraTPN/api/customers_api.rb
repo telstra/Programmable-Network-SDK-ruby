@@ -24,9 +24,9 @@ module TelstraTPN
     # Get the account information for the specified customer
     # @param customeruuid Unique identifier representing a specific customer
     # @param [Hash] opts the optional parameters
-    # @return [Model100AccountResponse]
-    def 100_account_by_customeruuid_get(customeruuid, opts = {})
-      data, _status_code, _headers = 100_account_by_customeruuid_get_with_http_info(customeruuid, opts)
+    # @return [Array<AccountResponse>]
+    def account_by_customeruuid_get(customeruuid, opts = {})
+      data, _status_code, _headers = account_by_customeruuid_get_with_http_info(customeruuid, opts)
       return data
     end
 
@@ -34,14 +34,14 @@ module TelstraTPN
     # Get the account information for the specified customer
     # @param customeruuid Unique identifier representing a specific customer
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Model100AccountResponse, Fixnum, Hash)>] Model100AccountResponse data, response status code and response headers
-    def 100_account_by_customeruuid_get_with_http_info(customeruuid, opts = {})
+    # @return [Array<(Array<AccountResponse>, Fixnum, Hash)>] Array<AccountResponse> data, response status code and response headers
+    def account_by_customeruuid_get_with_http_info(customeruuid, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: CustomersApi.100_account_by_customeruuid_get ..."
+        @api_client.config.logger.debug "Calling API: CustomersApi.account_by_customeruuid_get ..."
       end
       # verify the required parameter 'customeruuid' is set
       if @api_client.config.client_side_validation && customeruuid.nil?
-        fail ArgumentError, "Missing the required parameter 'customeruuid' when calling CustomersApi.100_account_by_customeruuid_get"
+        fail ArgumentError, "Missing the required parameter 'customeruuid' when calling CustomersApi.account_by_customeruuid_get"
       end
       # resource path
       local_var_path = "/1.0.0/account/{customeruuid}".sub('{' + 'customeruuid' + '}', customeruuid.to_s)
@@ -61,16 +61,16 @@ module TelstraTPN
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['auth']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Model100AccountResponse')
+        :return_type => 'Array<AccountResponse>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomersApi#100_account_by_customeruuid_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomersApi#account_by_customeruuid_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -80,8 +80,8 @@ module TelstraTPN
     # @param customeruuid Unique identifier representing a specific customer
     # @param [Hash] opts the optional parameters
     # @return [Array<User>]
-    def 100_account_user_by_customeruuid_get(customeruuid, opts = {})
-      data, _status_code, _headers = 100_account_user_by_customeruuid_get_with_http_info(customeruuid, opts)
+    def account_user_by_customeruuid_get(customeruuid, opts = {})
+      data, _status_code, _headers = account_user_by_customeruuid_get_with_http_info(customeruuid, opts)
       return data
     end
 
@@ -90,13 +90,13 @@ module TelstraTPN
     # @param customeruuid Unique identifier representing a specific customer
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<User>, Fixnum, Hash)>] Array<User> data, response status code and response headers
-    def 100_account_user_by_customeruuid_get_with_http_info(customeruuid, opts = {})
+    def account_user_by_customeruuid_get_with_http_info(customeruuid, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: CustomersApi.100_account_user_by_customeruuid_get ..."
+        @api_client.config.logger.debug "Calling API: CustomersApi.account_user_by_customeruuid_get ..."
       end
       # verify the required parameter 'customeruuid' is set
       if @api_client.config.client_side_validation && customeruuid.nil?
-        fail ArgumentError, "Missing the required parameter 'customeruuid' when calling CustomersApi.100_account_user_by_customeruuid_get"
+        fail ArgumentError, "Missing the required parameter 'customeruuid' when calling CustomersApi.account_user_by_customeruuid_get"
       end
       # resource path
       local_var_path = "/1.0.0/account/{customeruuid}/user".sub('{' + 'customeruuid' + '}', customeruuid.to_s)
@@ -116,7 +116,7 @@ module TelstraTPN
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['auth']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -125,7 +125,7 @@ module TelstraTPN
         :auth_names => auth_names,
         :return_type => 'Array<User>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomersApi#100_account_user_by_customeruuid_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomersApi#account_user_by_customeruuid_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

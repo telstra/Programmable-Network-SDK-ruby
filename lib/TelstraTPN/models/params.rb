@@ -176,16 +176,57 @@ module TelstraTPN
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
-    # @return Array for valid properies with the reasons
+    # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@duration.nil? && @duration < 3600
+        invalid_properties.push("invalid value for 'duration', must be greater than or equal to 3600.")
+      end
+
+      if !@bandwidth.nil? && @bandwidth > 0
+        invalid_properties.push("invalid value for 'bandwidth', must be smaller than or equal to 0.")
+      end
+
+      if !@bandwidth.nil? && @bandwidth < 0
+        invalid_properties.push("invalid value for 'bandwidth', must be greater than or equal to 0.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@duration.nil? && @duration < 3600
+      return false if !@bandwidth.nil? && @bandwidth > 0
+      return false if !@bandwidth.nil? && @bandwidth < 0
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] duration Value to be assigned
+    def duration=(duration)
+
+      if !duration.nil? && duration < 3600
+        fail ArgumentError, "invalid value for 'duration', must be greater than or equal to 3600."
+      end
+
+      @duration = duration
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] bandwidth Value to be assigned
+    def bandwidth=(bandwidth)
+
+      if !bandwidth.nil? && bandwidth > 0
+        fail ArgumentError, "invalid value for 'bandwidth', must be smaller than or equal to 0."
+      end
+
+      if !bandwidth.nil? && bandwidth < 0
+        fail ArgumentError, "invalid value for 'bandwidth', must be greater than or equal to 0."
+      end
+
+      @bandwidth = bandwidth
     end
 
     # Checks equality by comparing each attribute.

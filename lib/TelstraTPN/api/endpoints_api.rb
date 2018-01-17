@@ -20,224 +20,12 @@ module TelstraTPN
       @api_client = api_client
     end
 
-    # Get information about the specified endpoint
-    # Get information about the specified endpoint
-    # @param endpointuuid Unique identifier representing a specific endpoint
-    # @param [Hash] opts the optional parameters
-    # @return [Model100InventoryEndpointResponse]
-    def 100_inventory_endpoint_by_endpointuuid_get(endpointuuid, opts = {})
-      data, _status_code, _headers = 100_inventory_endpoint_by_endpointuuid_get_with_http_info(endpointuuid, opts)
-      return data
-    end
-
-    # Get information about the specified endpoint
-    # Get information about the specified endpoint
-    # @param endpointuuid Unique identifier representing a specific endpoint
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(Model100InventoryEndpointResponse, Fixnum, Hash)>] Model100InventoryEndpointResponse data, response status code and response headers
-    def 100_inventory_endpoint_by_endpointuuid_get_with_http_info(endpointuuid, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: EndpointsApi.100_inventory_endpoint_by_endpointuuid_get ..."
-      end
-      # verify the required parameter 'endpointuuid' is set
-      if @api_client.config.client_side_validation && endpointuuid.nil?
-        fail ArgumentError, "Missing the required parameter 'endpointuuid' when calling EndpointsApi.100_inventory_endpoint_by_endpointuuid_get"
-      end
-      # resource path
-      local_var_path = "/1.0.0/inventory/endpoint/{endpointuuid}".sub('{' + 'endpointuuid' + '}', endpointuuid.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = []
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'Model100InventoryEndpointResponse')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: EndpointsApi#100_inventory_endpoint_by_endpointuuid_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Get list of endpoints for a customer
-    # Get list of endpoints for a customer
-    # @param customeruuid Unique identifier representing a specific customer
-    # @param [Hash] opts the optional parameters
-    # @return [Model100InventoryEndpointsCustomeruuidResponse]
-    def 100_inventory_endpoints_customeruuid_by_customeruuid_get(customeruuid, opts = {})
-      data, _status_code, _headers = 100_inventory_endpoints_customeruuid_by_customeruuid_get_with_http_info(customeruuid, opts)
-      return data
-    end
-
-    # Get list of endpoints for a customer
-    # Get list of endpoints for a customer
-    # @param customeruuid Unique identifier representing a specific customer
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(Model100InventoryEndpointsCustomeruuidResponse, Fixnum, Hash)>] Model100InventoryEndpointsCustomeruuidResponse data, response status code and response headers
-    def 100_inventory_endpoints_customeruuid_by_customeruuid_get_with_http_info(customeruuid, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: EndpointsApi.100_inventory_endpoints_customeruuid_by_customeruuid_get ..."
-      end
-      # verify the required parameter 'customeruuid' is set
-      if @api_client.config.client_side_validation && customeruuid.nil?
-        fail ArgumentError, "Missing the required parameter 'customeruuid' when calling EndpointsApi.100_inventory_endpoints_customeruuid_by_customeruuid_get"
-      end
-      # resource path
-      local_var_path = "/1.0.0/inventory/endpoints/customeruuid/{customeruuid}".sub('{' + 'customeruuid' + '}', customeruuid.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = []
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'Model100InventoryEndpointsCustomeruuidResponse')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: EndpointsApi#100_inventory_endpoints_customeruuid_by_customeruuid_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Create Physical (Port) Endpoint
-    # Create Physical (Port) Endpoint
-    # @param [Hash] opts the optional parameters
-    # @option opts [Model100InventoryRegularendpointRequest] :body 
-    # @return [Model100InventoryRegularendpointResponse]
-    def 100_inventory_regularendpoint_post(opts = {})
-      data, _status_code, _headers = 100_inventory_regularendpoint_post_with_http_info(opts)
-      return data
-    end
-
-    # Create Physical (Port) Endpoint
-    # Create Physical (Port) Endpoint
-    # @param [Hash] opts the optional parameters
-    # @option opts [Model100InventoryRegularendpointRequest] :body 
-    # @return [Array<(Model100InventoryRegularendpointResponse, Fixnum, Hash)>] Model100InventoryRegularendpointResponse data, response status code and response headers
-    def 100_inventory_regularendpoint_post_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: EndpointsApi.100_inventory_regularendpoint_post ..."
-      end
-      # resource path
-      local_var_path = "/1.0.0/inventory/regularendpoint"
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'body'])
-      auth_names = []
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'Model100InventoryRegularendpointResponse')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: EndpointsApi#100_inventory_regularendpoint_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Create VNF Endpoint
-    # Create VNF Endpoint
-    # @param [Hash] opts the optional parameters
-    # @option opts [Model100InventoryVnfendpointRequest] :body 
-    # @return [Model100InventoryVnfendpointResponse]
-    def 100_inventory_vnfendpoint_post(opts = {})
-      data, _status_code, _headers = 100_inventory_vnfendpoint_post_with_http_info(opts)
-      return data
-    end
-
-    # Create VNF Endpoint
-    # Create VNF Endpoint
-    # @param [Hash] opts the optional parameters
-    # @option opts [Model100InventoryVnfendpointRequest] :body 
-    # @return [Array<(Model100InventoryVnfendpointResponse, Fixnum, Hash)>] Model100InventoryVnfendpointResponse data, response status code and response headers
-    def 100_inventory_vnfendpoint_post_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: EndpointsApi.100_inventory_vnfendpoint_post ..."
-      end
-      # resource path
-      local_var_path = "/1.0.0/inventory/vnfendpoint"
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'body'])
-      auth_names = []
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'Model100InventoryVnfendpointResponse')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: EndpointsApi#100_inventory_vnfendpoint_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Assign a Topology Tag to an Endpoint
     # Assign a Topology Tag to an Endpoint
     # @param endpointuuid Unique identifier representing a specific endpoint
     # @param [Hash] opts the optional parameters
     # @option opts [Eis100EndpointsAssignTopologyTagRequest] :body 
-    # @return [SuccessFragment]
+    # @return [Array<SuccessFragment>]
     def eis100_endpoints_assign_topology_tag_by_endpointuuid_post(endpointuuid, opts = {})
       data, _status_code, _headers = eis100_endpoints_assign_topology_tag_by_endpointuuid_post_with_http_info(endpointuuid, opts)
       return data
@@ -248,7 +36,7 @@ module TelstraTPN
     # @param endpointuuid Unique identifier representing a specific endpoint
     # @param [Hash] opts the optional parameters
     # @option opts [Eis100EndpointsAssignTopologyTagRequest] :body 
-    # @return [Array<(SuccessFragment, Fixnum, Hash)>] SuccessFragment data, response status code and response headers
+    # @return [Array<(Array<SuccessFragment>, Fixnum, Hash)>] Array<SuccessFragment> data, response status code and response headers
     def eis100_endpoints_assign_topology_tag_by_endpointuuid_post_with_http_info(endpointuuid, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: EndpointsApi.eis100_endpoints_assign_topology_tag_by_endpointuuid_post ..."
@@ -275,16 +63,228 @@ module TelstraTPN
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'body'])
-      auth_names = []
+      auth_names = ['auth']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'SuccessFragment')
+        :return_type => 'Array<SuccessFragment>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EndpointsApi#eis100_endpoints_assign_topology_tag_by_endpointuuid_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get information about the specified endpoint
+    # Get information about the specified endpoint
+    # @param endpointuuid Unique identifier representing a specific endpoint
+    # @param [Hash] opts the optional parameters
+    # @return [InventoryEndpointResponse]
+    def inventory_endpoint_by_endpointuuid_get(endpointuuid, opts = {})
+      data, _status_code, _headers = inventory_endpoint_by_endpointuuid_get_with_http_info(endpointuuid, opts)
+      return data
+    end
+
+    # Get information about the specified endpoint
+    # Get information about the specified endpoint
+    # @param endpointuuid Unique identifier representing a specific endpoint
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(InventoryEndpointResponse, Fixnum, Hash)>] InventoryEndpointResponse data, response status code and response headers
+    def inventory_endpoint_by_endpointuuid_get_with_http_info(endpointuuid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EndpointsApi.inventory_endpoint_by_endpointuuid_get ..."
+      end
+      # verify the required parameter 'endpointuuid' is set
+      if @api_client.config.client_side_validation && endpointuuid.nil?
+        fail ArgumentError, "Missing the required parameter 'endpointuuid' when calling EndpointsApi.inventory_endpoint_by_endpointuuid_get"
+      end
+      # resource path
+      local_var_path = "/1.0.0/inventory/endpoint/{endpointuuid}".sub('{' + 'endpointuuid' + '}', endpointuuid.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['auth']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InventoryEndpointResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EndpointsApi#inventory_endpoint_by_endpointuuid_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get list of endpoints for a customer
+    # Get list of endpoints for a customer
+    # @param customeruuid Unique identifier representing a specific customer
+    # @param [Hash] opts the optional parameters
+    # @return [InventoryEndpointsCustomeruuidResponse]
+    def inventory_endpoints_customeruuid_by_customeruuid_get(customeruuid, opts = {})
+      data, _status_code, _headers = inventory_endpoints_customeruuid_by_customeruuid_get_with_http_info(customeruuid, opts)
+      return data
+    end
+
+    # Get list of endpoints for a customer
+    # Get list of endpoints for a customer
+    # @param customeruuid Unique identifier representing a specific customer
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(InventoryEndpointsCustomeruuidResponse, Fixnum, Hash)>] InventoryEndpointsCustomeruuidResponse data, response status code and response headers
+    def inventory_endpoints_customeruuid_by_customeruuid_get_with_http_info(customeruuid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EndpointsApi.inventory_endpoints_customeruuid_by_customeruuid_get ..."
+      end
+      # verify the required parameter 'customeruuid' is set
+      if @api_client.config.client_side_validation && customeruuid.nil?
+        fail ArgumentError, "Missing the required parameter 'customeruuid' when calling EndpointsApi.inventory_endpoints_customeruuid_by_customeruuid_get"
+      end
+      # resource path
+      local_var_path = "/1.0.0/inventory/endpoints/customeruuid/{customeruuid}".sub('{' + 'customeruuid' + '}', customeruuid.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['auth']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InventoryEndpointsCustomeruuidResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EndpointsApi#inventory_endpoints_customeruuid_by_customeruuid_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create Physical (Port) Endpoint
+    # Create Physical (Port) Endpoint
+    # @param [Hash] opts the optional parameters
+    # @option opts [InventoryRegularendpointRequest] :body 
+    # @return [Array<InventoryRegularendpointResponse>]
+    def inventory_regularendpoint_post(opts = {})
+      data, _status_code, _headers = inventory_regularendpoint_post_with_http_info(opts)
+      return data
+    end
+
+    # Create Physical (Port) Endpoint
+    # Create Physical (Port) Endpoint
+    # @param [Hash] opts the optional parameters
+    # @option opts [InventoryRegularendpointRequest] :body 
+    # @return [Array<(Array<InventoryRegularendpointResponse>, Fixnum, Hash)>] Array<InventoryRegularendpointResponse> data, response status code and response headers
+    def inventory_regularendpoint_post_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EndpointsApi.inventory_regularendpoint_post ..."
+      end
+      # resource path
+      local_var_path = "/1.0.0/inventory/regularendpoint"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'body'])
+      auth_names = ['auth']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<InventoryRegularendpointResponse>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EndpointsApi#inventory_regularendpoint_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create VNF Endpoint
+    # Create VNF Endpoint
+    # @param [Hash] opts the optional parameters
+    # @option opts [InventoryVnfendpointRequest] :body 
+    # @return [Array<InventoryVnfendpointResponse>]
+    def inventory_vnfendpoint_post(opts = {})
+      data, _status_code, _headers = inventory_vnfendpoint_post_with_http_info(opts)
+      return data
+    end
+
+    # Create VNF Endpoint
+    # Create VNF Endpoint
+    # @param [Hash] opts the optional parameters
+    # @option opts [InventoryVnfendpointRequest] :body 
+    # @return [Array<(Array<InventoryVnfendpointResponse>, Fixnum, Hash)>] Array<InventoryVnfendpointResponse> data, response status code and response headers
+    def inventory_vnfendpoint_post_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EndpointsApi.inventory_vnfendpoint_post ..."
+      end
+      # resource path
+      local_var_path = "/1.0.0/inventory/vnfendpoint"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'body'])
+      auth_names = ['auth']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<InventoryVnfendpointResponse>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EndpointsApi#inventory_vnfendpoint_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

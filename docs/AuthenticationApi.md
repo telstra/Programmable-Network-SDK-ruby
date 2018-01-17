@@ -4,12 +4,12 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**100_auth_generatetoken_post**](AuthenticationApi.md#100_auth_generatetoken_post) | **POST** /1.0.0/auth/generatetoken | Create an authentication token
-[**100_auth_validatetoken_get**](AuthenticationApi.md#100_auth_validatetoken_get) | **GET** /1.0.0/auth/validatetoken | Validate authentication token
+[**auth_generatetoken_post**](AuthenticationApi.md#auth_generatetoken_post) | **POST** /1.0.0/auth/generatetoken | Create an authentication token
+[**auth_validatetoken_get**](AuthenticationApi.md#auth_validatetoken_get) | **GET** /1.0.0/auth/validatetoken | Validate authentication token
 
 
-# **100_auth_generatetoken_post**
-> Model100AuthGeneratetokenResponse 100_auth_generatetoken_post(grant_type, username, password)
+# **auth_generatetoken_post**
+> AuthGeneratetokenResponse auth_generatetoken_post(grant_type, username, password)
 
 Create an authentication token
 
@@ -31,10 +31,10 @@ password = "password_example" # String |
 
 begin
   #Create an authentication token
-  result = api_instance.100_auth_generatetoken_post(grant_type, username, password)
+  result = api_instance.auth_generatetoken_post(grant_type, username, password)
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling AuthenticationApi->100_auth_generatetoken_post: #{e}"
+  puts "Exception when calling AuthenticationApi->auth_generatetoken_post: #{e}"
 end
 ```
 
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Model100AuthGeneratetokenResponse**](Model100AuthGeneratetokenResponse.md)
+[**AuthGeneratetokenResponse**](AuthGeneratetokenResponse.md)
 
 ### Authorization
 
@@ -61,8 +61,8 @@ No authorization required
 
 
 
-# **100_auth_validatetoken_get**
-> Model100AuthValidatetokenResponse 100_auth_validatetoken_get
+# **auth_validatetoken_get**
+> AuthValidatetokenResponse auth_validatetoken_get
 
 Validate authentication token
 
@@ -77,10 +77,10 @@ api_instance = TelstraTPN::AuthenticationApi.new
 
 begin
   #Validate authentication token
-  result = api_instance.100_auth_validatetoken_get
+  result = api_instance.auth_validatetoken_get
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling AuthenticationApi->100_auth_validatetoken_get: #{e}"
+  puts "Exception when calling AuthenticationApi->auth_validatetoken_get: #{e}"
 end
 ```
 
@@ -89,7 +89,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Model100AuthValidatetokenResponse**](Model100AuthValidatetokenResponse.md)
+[**AuthValidatetokenResponse**](AuthValidatetokenResponse.md)
 
 ### Authorization
 

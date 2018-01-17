@@ -23,19 +23,19 @@ module TelstraTPN
     # List images in the Marketplace
     # List images in the Marketplace
     # @param [Hash] opts the optional parameters
-    # @return [Model100MarketplaceImageResponse]
-    def 100_marketplace_image_get(opts = {})
-      data, _status_code, _headers = 100_marketplace_image_get_with_http_info(opts)
+    # @return [MarketplaceImageResponse]
+    def marketplace_image_get(opts = {})
+      data, _status_code, _headers = marketplace_image_get_with_http_info(opts)
       return data
     end
 
     # List images in the Marketplace
     # List images in the Marketplace
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Model100MarketplaceImageResponse, Fixnum, Hash)>] Model100MarketplaceImageResponse data, response status code and response headers
-    def 100_marketplace_image_get_with_http_info(opts = {})
+    # @return [Array<(MarketplaceImageResponse, Fixnum, Hash)>] MarketplaceImageResponse data, response status code and response headers
+    def marketplace_image_get_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: VnfsApi.100_marketplace_image_get ..."
+        @api_client.config.logger.debug "Calling API: VnfsApi.marketplace_image_get ..."
       end
       # resource path
       local_var_path = "/1.0.0/marketplace/image"
@@ -55,16 +55,16 @@ module TelstraTPN
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['auth']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Model100MarketplaceImageResponse')
+        :return_type => 'MarketplaceImageResponse')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VnfsApi#100_marketplace_image_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: VnfsApi#marketplace_image_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

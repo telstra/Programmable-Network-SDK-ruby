@@ -26,9 +26,9 @@ module TelstraTPN
     # @param username 
     # @param password 
     # @param [Hash] opts the optional parameters
-    # @return [Model100AuthGeneratetokenResponse]
-    def 100_auth_generatetoken_post(grant_type, username, password, opts = {})
-      data, _status_code, _headers = 100_auth_generatetoken_post_with_http_info(grant_type, username, password, opts)
+    # @return [AuthGeneratetokenResponse]
+    def auth_generatetoken_post(grant_type, username, password, opts = {})
+      data, _status_code, _headers = auth_generatetoken_post_with_http_info(grant_type, username, password, opts)
       return data
     end
 
@@ -38,22 +38,22 @@ module TelstraTPN
     # @param username 
     # @param password 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Model100AuthGeneratetokenResponse, Fixnum, Hash)>] Model100AuthGeneratetokenResponse data, response status code and response headers
-    def 100_auth_generatetoken_post_with_http_info(grant_type, username, password, opts = {})
+    # @return [Array<(AuthGeneratetokenResponse, Fixnum, Hash)>] AuthGeneratetokenResponse data, response status code and response headers
+    def auth_generatetoken_post_with_http_info(grant_type, username, password, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: AuthenticationApi.100_auth_generatetoken_post ..."
+        @api_client.config.logger.debug "Calling API: AuthenticationApi.auth_generatetoken_post ..."
       end
       # verify the required parameter 'grant_type' is set
       if @api_client.config.client_side_validation && grant_type.nil?
-        fail ArgumentError, "Missing the required parameter 'grant_type' when calling AuthenticationApi.100_auth_generatetoken_post"
+        fail ArgumentError, "Missing the required parameter 'grant_type' when calling AuthenticationApi.auth_generatetoken_post"
       end
       # verify the required parameter 'username' is set
       if @api_client.config.client_side_validation && username.nil?
-        fail ArgumentError, "Missing the required parameter 'username' when calling AuthenticationApi.100_auth_generatetoken_post"
+        fail ArgumentError, "Missing the required parameter 'username' when calling AuthenticationApi.auth_generatetoken_post"
       end
       # verify the required parameter 'password' is set
       if @api_client.config.client_side_validation && password.nil?
-        fail ArgumentError, "Missing the required parameter 'password' when calling AuthenticationApi.100_auth_generatetoken_post"
+        fail ArgumentError, "Missing the required parameter 'password' when calling AuthenticationApi.auth_generatetoken_post"
       end
       # resource path
       local_var_path = "/1.0.0/auth/generatetoken"
@@ -83,9 +83,9 @@ module TelstraTPN
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Model100AuthGeneratetokenResponse')
+        :return_type => 'AuthGeneratetokenResponse')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AuthenticationApi#100_auth_generatetoken_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: AuthenticationApi#auth_generatetoken_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -93,19 +93,19 @@ module TelstraTPN
     # Validate authentication token
     # Validate the authentication token and get information about the user (roles, permissions, etc.)
     # @param [Hash] opts the optional parameters
-    # @return [Model100AuthValidatetokenResponse]
-    def 100_auth_validatetoken_get(opts = {})
-      data, _status_code, _headers = 100_auth_validatetoken_get_with_http_info(opts)
+    # @return [AuthValidatetokenResponse]
+    def auth_validatetoken_get(opts = {})
+      data, _status_code, _headers = auth_validatetoken_get_with_http_info(opts)
       return data
     end
 
     # Validate authentication token
     # Validate the authentication token and get information about the user (roles, permissions, etc.)
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Model100AuthValidatetokenResponse, Fixnum, Hash)>] Model100AuthValidatetokenResponse data, response status code and response headers
-    def 100_auth_validatetoken_get_with_http_info(opts = {})
+    # @return [Array<(AuthValidatetokenResponse, Fixnum, Hash)>] AuthValidatetokenResponse data, response status code and response headers
+    def auth_validatetoken_get_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: AuthenticationApi.100_auth_validatetoken_get ..."
+        @api_client.config.logger.debug "Calling API: AuthenticationApi.auth_validatetoken_get ..."
       end
       # resource path
       local_var_path = "/1.0.0/auth/validatetoken"
@@ -132,9 +132,9 @@ module TelstraTPN
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Model100AuthValidatetokenResponse')
+        :return_type => 'AuthValidatetokenResponse')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AuthenticationApi#100_auth_validatetoken_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: AuthenticationApi#auth_validatetoken_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

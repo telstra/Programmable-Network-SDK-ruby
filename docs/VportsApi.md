@@ -4,13 +4,13 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**100_inventory_regularvport_post**](VportsApi.md#100_inventory_regularvport_post) | **POST** /1.0.0/inventory/regularvport | Create VPort for physical endpoint
-[**100_inventory_vnf_vport_post**](VportsApi.md#100_inventory_vnf_vport_post) | **POST** /1.0.0/inventory/vnf/vport | Create VNF VPort
-[**100_inventory_vport_by_vportuuid_get**](VportsApi.md#100_inventory_vport_by_vportuuid_get) | **GET** /1.0.0/inventory/vport/{vportuuid} | Get information about the specified VPort
+[**inventory_regularvport_post**](VportsApi.md#inventory_regularvport_post) | **POST** /1.0.0/inventory/regularvport | Create VPort for physical endpoint
+[**inventory_vnf_vport_post**](VportsApi.md#inventory_vnf_vport_post) | **POST** /1.0.0/inventory/vnf/vport | Create VNF VPort
+[**inventory_vport_by_vportuuid_get**](VportsApi.md#inventory_vport_by_vportuuid_get) | **GET** /1.0.0/inventory/vport/{vportuuid} | Get information about the specified VPort
 
 
-# **100_inventory_regularvport_post**
-> Model100InventoryRegularvportResponse 100_inventory_regularvport_post(opts)
+# **inventory_regularvport_post**
+> InventoryRegularvportResponse inventory_regularvport_post(opts)
 
 Create VPort for physical endpoint
 
@@ -20,19 +20,24 @@ Create VPort representing a VLAN on a Physical Ethernet Port
 ```ruby
 # load the gem
 require 'TelstraTPN'
+# setup authorization
+TelstraTPN.configure do |config|
+  # Configure OAuth2 access token for authorization: auth
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
 
 api_instance = TelstraTPN::VportsApi.new
 
 opts = { 
-  body: TelstraTPN::Model100InventoryRegularvportRequest.new # Model100InventoryRegularvportRequest | 
+  body: TelstraTPN::InventoryRegularvportRequest.new # InventoryRegularvportRequest | 
 }
 
 begin
   #Create VPort for physical endpoint
-  result = api_instance.100_inventory_regularvport_post(opts)
+  result = api_instance.inventory_regularvport_post(opts)
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling VportsApi->100_inventory_regularvport_post: #{e}"
+  puts "Exception when calling VportsApi->inventory_regularvport_post: #{e}"
 end
 ```
 
@@ -40,15 +45,15 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Model100InventoryRegularvportRequest**](Model100InventoryRegularvportRequest.md)|  | [optional] 
+ **body** | [**InventoryRegularvportRequest**](InventoryRegularvportRequest.md)|  | [optional] 
 
 ### Return type
 
-[**Model100InventoryRegularvportResponse**](Model100InventoryRegularvportResponse.md)
+[**InventoryRegularvportResponse**](InventoryRegularvportResponse.md)
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 
@@ -57,8 +62,8 @@ No authorization required
 
 
 
-# **100_inventory_vnf_vport_post**
-> Model100InventoryVnfVportResponse 100_inventory_vnf_vport_post(opts)
+# **inventory_vnf_vport_post**
+> InventoryVnfVportResponse inventory_vnf_vport_post(opts)
 
 Create VNF VPort
 
@@ -68,19 +73,24 @@ Create VNF VPort
 ```ruby
 # load the gem
 require 'TelstraTPN'
+# setup authorization
+TelstraTPN.configure do |config|
+  # Configure OAuth2 access token for authorization: auth
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
 
 api_instance = TelstraTPN::VportsApi.new
 
 opts = { 
-  body: TelstraTPN::Model100InventoryVnfVportRequest.new # Model100InventoryVnfVportRequest | 
+  body: TelstraTPN::InventoryVnfVportRequest.new # InventoryVnfVportRequest | 
 }
 
 begin
   #Create VNF VPort
-  result = api_instance.100_inventory_vnf_vport_post(opts)
+  result = api_instance.inventory_vnf_vport_post(opts)
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling VportsApi->100_inventory_vnf_vport_post: #{e}"
+  puts "Exception when calling VportsApi->inventory_vnf_vport_post: #{e}"
 end
 ```
 
@@ -88,15 +98,15 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Model100InventoryVnfVportRequest**](Model100InventoryVnfVportRequest.md)|  | [optional] 
+ **body** | [**InventoryVnfVportRequest**](InventoryVnfVportRequest.md)|  | [optional] 
 
 ### Return type
 
-[**Model100InventoryVnfVportResponse**](Model100InventoryVnfVportResponse.md)
+[**InventoryVnfVportResponse**](InventoryVnfVportResponse.md)
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 
@@ -105,8 +115,8 @@ No authorization required
 
 
 
-# **100_inventory_vport_by_vportuuid_get**
-> EndpointPort 100_inventory_vport_by_vportuuid_get(vportuuid)
+# **inventory_vport_by_vportuuid_get**
+> Array&lt;EndpointPort&gt; inventory_vport_by_vportuuid_get(vportuuid)
 
 Get information about the specified VPort
 
@@ -116,6 +126,11 @@ Get information about the specified VPort
 ```ruby
 # load the gem
 require 'TelstraTPN'
+# setup authorization
+TelstraTPN.configure do |config|
+  # Configure OAuth2 access token for authorization: auth
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
 
 api_instance = TelstraTPN::VportsApi.new
 
@@ -124,10 +139,10 @@ vportuuid = "vportuuid_example" # String | Unique identifier representing a spec
 
 begin
   #Get information about the specified VPort
-  result = api_instance.100_inventory_vport_by_vportuuid_get(vportuuid)
+  result = api_instance.inventory_vport_by_vportuuid_get(vportuuid)
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling VportsApi->100_inventory_vport_by_vportuuid_get: #{e}"
+  puts "Exception when calling VportsApi->inventory_vport_by_vportuuid_get: #{e}"
 end
 ```
 
@@ -139,11 +154,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EndpointPort**](EndpointPort.md)
+[**Array&lt;EndpointPort&gt;**](EndpointPort.md)
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 

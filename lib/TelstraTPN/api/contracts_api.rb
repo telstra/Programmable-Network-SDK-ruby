@@ -25,9 +25,9 @@ module TelstraTPN
     # @param linkid Unique identifier representing a specific link
     # @param contractid Unique identifier representing a specific contract
     # @param [Hash] opts the optional parameters
-    # @return [Model100InventoryLinksContractResponse]
-    def 100_inventory_links_contract_by_linkid_and_contractid_get(linkid, contractid, opts = {})
-      data, _status_code, _headers = 100_inventory_links_contract_by_linkid_and_contractid_get_with_http_info(linkid, contractid, opts)
+    # @return [InventoryLinksContractResponse]
+    def inventory_links_contract_by_linkid_and_contractid_get(linkid, contractid, opts = {})
+      data, _status_code, _headers = inventory_links_contract_by_linkid_and_contractid_get_with_http_info(linkid, contractid, opts)
       return data
     end
 
@@ -36,18 +36,18 @@ module TelstraTPN
     # @param linkid Unique identifier representing a specific link
     # @param contractid Unique identifier representing a specific contract
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Model100InventoryLinksContractResponse, Fixnum, Hash)>] Model100InventoryLinksContractResponse data, response status code and response headers
-    def 100_inventory_links_contract_by_linkid_and_contractid_get_with_http_info(linkid, contractid, opts = {})
+    # @return [Array<(InventoryLinksContractResponse, Fixnum, Hash)>] InventoryLinksContractResponse data, response status code and response headers
+    def inventory_links_contract_by_linkid_and_contractid_get_with_http_info(linkid, contractid, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ContractsApi.100_inventory_links_contract_by_linkid_and_contractid_get ..."
+        @api_client.config.logger.debug "Calling API: ContractsApi.inventory_links_contract_by_linkid_and_contractid_get ..."
       end
       # verify the required parameter 'linkid' is set
       if @api_client.config.client_side_validation && linkid.nil?
-        fail ArgumentError, "Missing the required parameter 'linkid' when calling ContractsApi.100_inventory_links_contract_by_linkid_and_contractid_get"
+        fail ArgumentError, "Missing the required parameter 'linkid' when calling ContractsApi.inventory_links_contract_by_linkid_and_contractid_get"
       end
       # verify the required parameter 'contractid' is set
       if @api_client.config.client_side_validation && contractid.nil?
-        fail ArgumentError, "Missing the required parameter 'contractid' when calling ContractsApi.100_inventory_links_contract_by_linkid_and_contractid_get"
+        fail ArgumentError, "Missing the required parameter 'contractid' when calling ContractsApi.inventory_links_contract_by_linkid_and_contractid_get"
       end
       # resource path
       local_var_path = "/1.0.0/inventory/links/{linkid}/contract/{contractid}".sub('{' + 'linkid' + '}', linkid.to_s).sub('{' + 'contractid' + '}', contractid.to_s)
@@ -67,16 +67,16 @@ module TelstraTPN
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['auth']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Model100InventoryLinksContractResponse')
+        :return_type => 'InventoryLinksContractResponse')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContractsApi#100_inventory_links_contract_by_linkid_and_contractid_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContractsApi#inventory_links_contract_by_linkid_and_contractid_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -86,10 +86,10 @@ module TelstraTPN
     # @param linkid Unique identifier representing a specific link
     # @param contractid Unique identifier representing a specific contract
     # @param [Hash] opts the optional parameters
-    # @option opts [Model100InventoryLinksContractRequest] :body 
-    # @return [Model100InventoryLinksContractResponse33]
-    def 100_inventory_links_contract_by_linkid_and_contractid_put(linkid, contractid, opts = {})
-      data, _status_code, _headers = 100_inventory_links_contract_by_linkid_and_contractid_put_with_http_info(linkid, contractid, opts)
+    # @option opts [InventoryLinksContractRequest] :body 
+    # @return [InventoryLinksContractResponse33]
+    def inventory_links_contract_by_linkid_and_contractid_put(linkid, contractid, opts = {})
+      data, _status_code, _headers = inventory_links_contract_by_linkid_and_contractid_put_with_http_info(linkid, contractid, opts)
       return data
     end
 
@@ -98,19 +98,19 @@ module TelstraTPN
     # @param linkid Unique identifier representing a specific link
     # @param contractid Unique identifier representing a specific contract
     # @param [Hash] opts the optional parameters
-    # @option opts [Model100InventoryLinksContractRequest] :body 
-    # @return [Array<(Model100InventoryLinksContractResponse33, Fixnum, Hash)>] Model100InventoryLinksContractResponse33 data, response status code and response headers
-    def 100_inventory_links_contract_by_linkid_and_contractid_put_with_http_info(linkid, contractid, opts = {})
+    # @option opts [InventoryLinksContractRequest] :body 
+    # @return [Array<(InventoryLinksContractResponse33, Fixnum, Hash)>] InventoryLinksContractResponse33 data, response status code and response headers
+    def inventory_links_contract_by_linkid_and_contractid_put_with_http_info(linkid, contractid, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ContractsApi.100_inventory_links_contract_by_linkid_and_contractid_put ..."
+        @api_client.config.logger.debug "Calling API: ContractsApi.inventory_links_contract_by_linkid_and_contractid_put ..."
       end
       # verify the required parameter 'linkid' is set
       if @api_client.config.client_side_validation && linkid.nil?
-        fail ArgumentError, "Missing the required parameter 'linkid' when calling ContractsApi.100_inventory_links_contract_by_linkid_and_contractid_put"
+        fail ArgumentError, "Missing the required parameter 'linkid' when calling ContractsApi.inventory_links_contract_by_linkid_and_contractid_put"
       end
       # verify the required parameter 'contractid' is set
       if @api_client.config.client_side_validation && contractid.nil?
-        fail ArgumentError, "Missing the required parameter 'contractid' when calling ContractsApi.100_inventory_links_contract_by_linkid_and_contractid_put"
+        fail ArgumentError, "Missing the required parameter 'contractid' when calling ContractsApi.inventory_links_contract_by_linkid_and_contractid_put"
       end
       # resource path
       local_var_path = "/1.0.0/inventory/links/{linkid}/contract/{contractid}".sub('{' + 'linkid' + '}', linkid.to_s).sub('{' + 'contractid' + '}', contractid.to_s)
@@ -130,16 +130,16 @@ module TelstraTPN
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'body'])
-      auth_names = []
+      auth_names = ['auth']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Model100InventoryLinksContractResponse33')
+        :return_type => 'InventoryLinksContractResponse33')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContractsApi#100_inventory_links_contract_by_linkid_and_contractid_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContractsApi#inventory_links_contract_by_linkid_and_contractid_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -148,10 +148,10 @@ module TelstraTPN
     # Create new Contract on specified link
     # @param linkid Unique identifier representing a specific link
     # @param [Hash] opts the optional parameters
-    # @option opts [Model100InventoryLinksContractRequest37] :body 
-    # @return [Model100InventoryLinksContractResponse38]
-    def 100_inventory_links_contract_by_linkid_post(linkid, opts = {})
-      data, _status_code, _headers = 100_inventory_links_contract_by_linkid_post_with_http_info(linkid, opts)
+    # @option opts [InventoryLinksContractRequest37] :body 
+    # @return [Array<InventoryLinksContractResponse38>]
+    def inventory_links_contract_by_linkid_post(linkid, opts = {})
+      data, _status_code, _headers = inventory_links_contract_by_linkid_post_with_http_info(linkid, opts)
       return data
     end
 
@@ -159,15 +159,15 @@ module TelstraTPN
     # Create new Contract on specified link
     # @param linkid Unique identifier representing a specific link
     # @param [Hash] opts the optional parameters
-    # @option opts [Model100InventoryLinksContractRequest37] :body 
-    # @return [Array<(Model100InventoryLinksContractResponse38, Fixnum, Hash)>] Model100InventoryLinksContractResponse38 data, response status code and response headers
-    def 100_inventory_links_contract_by_linkid_post_with_http_info(linkid, opts = {})
+    # @option opts [InventoryLinksContractRequest37] :body 
+    # @return [Array<(Array<InventoryLinksContractResponse38>, Fixnum, Hash)>] Array<InventoryLinksContractResponse38> data, response status code and response headers
+    def inventory_links_contract_by_linkid_post_with_http_info(linkid, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ContractsApi.100_inventory_links_contract_by_linkid_post ..."
+        @api_client.config.logger.debug "Calling API: ContractsApi.inventory_links_contract_by_linkid_post ..."
       end
       # verify the required parameter 'linkid' is set
       if @api_client.config.client_side_validation && linkid.nil?
-        fail ArgumentError, "Missing the required parameter 'linkid' when calling ContractsApi.100_inventory_links_contract_by_linkid_post"
+        fail ArgumentError, "Missing the required parameter 'linkid' when calling ContractsApi.inventory_links_contract_by_linkid_post"
       end
       # resource path
       local_var_path = "/1.0.0/inventory/links/{linkid}/contract".sub('{' + 'linkid' + '}', linkid.to_s)
@@ -187,16 +187,16 @@ module TelstraTPN
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'body'])
-      auth_names = []
+      auth_names = ['auth']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Model100InventoryLinksContractResponse38')
+        :return_type => 'Array<InventoryLinksContractResponse38>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContractsApi#100_inventory_links_contract_by_linkid_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContractsApi#inventory_links_contract_by_linkid_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

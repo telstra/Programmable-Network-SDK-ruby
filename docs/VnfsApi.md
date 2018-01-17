@@ -4,11 +4,11 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**100_marketplace_image_get**](VnfsApi.md#100_marketplace_image_get) | **GET** /1.0.0/marketplace/image | List images in the Marketplace
+[**marketplace_image_get**](VnfsApi.md#marketplace_image_get) | **GET** /1.0.0/marketplace/image | List images in the Marketplace
 
 
-# **100_marketplace_image_get**
-> Model100MarketplaceImageResponse 100_marketplace_image_get
+# **marketplace_image_get**
+> MarketplaceImageResponse marketplace_image_get
 
 List images in the Marketplace
 
@@ -18,15 +18,20 @@ List images in the Marketplace
 ```ruby
 # load the gem
 require 'TelstraTPN'
+# setup authorization
+TelstraTPN.configure do |config|
+  # Configure OAuth2 access token for authorization: auth
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
 
 api_instance = TelstraTPN::VnfsApi.new
 
 begin
   #List images in the Marketplace
-  result = api_instance.100_marketplace_image_get
+  result = api_instance.marketplace_image_get
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling VnfsApi->100_marketplace_image_get: #{e}"
+  puts "Exception when calling VnfsApi->marketplace_image_get: #{e}"
 end
 ```
 
@@ -35,11 +40,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Model100MarketplaceImageResponse**](Model100MarketplaceImageResponse.md)
+[**MarketplaceImageResponse**](MarketplaceImageResponse.md)
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 

@@ -23,21 +23,21 @@ module TelstraTPN
     # Create Link and initial Contract
     # Create Link and initial Contract
     # @param [Hash] opts the optional parameters
-    # @option opts [Model100InventoryLinkRequest] :body 
-    # @return [Model100InventoryLinkResponse]
-    def 100_inventory_link_post(opts = {})
-      data, _status_code, _headers = 100_inventory_link_post_with_http_info(opts)
+    # @option opts [InventoryLinkRequest] :body 
+    # @return [InventoryLinkResponse]
+    def inventory_link_post(opts = {})
+      data, _status_code, _headers = inventory_link_post_with_http_info(opts)
       return data
     end
 
     # Create Link and initial Contract
     # Create Link and initial Contract
     # @param [Hash] opts the optional parameters
-    # @option opts [Model100InventoryLinkRequest] :body 
-    # @return [Array<(Model100InventoryLinkResponse, Fixnum, Hash)>] Model100InventoryLinkResponse data, response status code and response headers
-    def 100_inventory_link_post_with_http_info(opts = {})
+    # @option opts [InventoryLinkRequest] :body 
+    # @return [Array<(InventoryLinkResponse, Fixnum, Hash)>] InventoryLinkResponse data, response status code and response headers
+    def inventory_link_post_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: LinksApi.100_inventory_link_post ..."
+        @api_client.config.logger.debug "Calling API: LinksApi.inventory_link_post ..."
       end
       # resource path
       local_var_path = "/1.0.0/inventory/link"
@@ -57,16 +57,16 @@ module TelstraTPN
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'body'])
-      auth_names = []
+      auth_names = ['auth']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Model100InventoryLinkResponse')
+        :return_type => 'InventoryLinkResponse')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: LinksApi#100_inventory_link_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: LinksApi#inventory_link_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -75,9 +75,9 @@ module TelstraTPN
     # Get details of specified link
     # @param linkid Unique identifier representing a specific link
     # @param [Hash] opts the optional parameters
-    # @return [Model100InventoryLinksResponse]
-    def 100_inventory_links_by_linkid_get(linkid, opts = {})
-      data, _status_code, _headers = 100_inventory_links_by_linkid_get_with_http_info(linkid, opts)
+    # @return [InventoryLinksResponse]
+    def inventory_links_by_linkid_get(linkid, opts = {})
+      data, _status_code, _headers = inventory_links_by_linkid_get_with_http_info(linkid, opts)
       return data
     end
 
@@ -85,14 +85,14 @@ module TelstraTPN
     # Get details of specified link
     # @param linkid Unique identifier representing a specific link
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Model100InventoryLinksResponse, Fixnum, Hash)>] Model100InventoryLinksResponse data, response status code and response headers
-    def 100_inventory_links_by_linkid_get_with_http_info(linkid, opts = {})
+    # @return [Array<(InventoryLinksResponse, Fixnum, Hash)>] InventoryLinksResponse data, response status code and response headers
+    def inventory_links_by_linkid_get_with_http_info(linkid, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: LinksApi.100_inventory_links_by_linkid_get ..."
+        @api_client.config.logger.debug "Calling API: LinksApi.inventory_links_by_linkid_get ..."
       end
       # verify the required parameter 'linkid' is set
       if @api_client.config.client_side_validation && linkid.nil?
-        fail ArgumentError, "Missing the required parameter 'linkid' when calling LinksApi.100_inventory_links_by_linkid_get"
+        fail ArgumentError, "Missing the required parameter 'linkid' when calling LinksApi.inventory_links_by_linkid_get"
       end
       # resource path
       local_var_path = "/1.0.0/inventory/links/{linkid}".sub('{' + 'linkid' + '}', linkid.to_s)
@@ -112,16 +112,16 @@ module TelstraTPN
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['auth']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Model100InventoryLinksResponse')
+        :return_type => 'InventoryLinksResponse')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: LinksApi#100_inventory_links_by_linkid_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: LinksApi#inventory_links_by_linkid_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -131,8 +131,8 @@ module TelstraTPN
     # @param customeruuid Unique identifier representing a specific customer
     # @param [Hash] opts the optional parameters
     # @return [Array<Link>]
-    def 100_inventory_links_customer_by_customeruuid_get(customeruuid, opts = {})
-      data, _status_code, _headers = 100_inventory_links_customer_by_customeruuid_get_with_http_info(customeruuid, opts)
+    def inventory_links_customer_by_customeruuid_get(customeruuid, opts = {})
+      data, _status_code, _headers = inventory_links_customer_by_customeruuid_get_with_http_info(customeruuid, opts)
       return data
     end
 
@@ -141,13 +141,13 @@ module TelstraTPN
     # @param customeruuid Unique identifier representing a specific customer
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<Link>, Fixnum, Hash)>] Array<Link> data, response status code and response headers
-    def 100_inventory_links_customer_by_customeruuid_get_with_http_info(customeruuid, opts = {})
+    def inventory_links_customer_by_customeruuid_get_with_http_info(customeruuid, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: LinksApi.100_inventory_links_customer_by_customeruuid_get ..."
+        @api_client.config.logger.debug "Calling API: LinksApi.inventory_links_customer_by_customeruuid_get ..."
       end
       # verify the required parameter 'customeruuid' is set
       if @api_client.config.client_side_validation && customeruuid.nil?
-        fail ArgumentError, "Missing the required parameter 'customeruuid' when calling LinksApi.100_inventory_links_customer_by_customeruuid_get"
+        fail ArgumentError, "Missing the required parameter 'customeruuid' when calling LinksApi.inventory_links_customer_by_customeruuid_get"
       end
       # resource path
       local_var_path = "/1.0.0/inventory/links/customer/{customeruuid}".sub('{' + 'customeruuid' + '}', customeruuid.to_s)
@@ -167,7 +167,7 @@ module TelstraTPN
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['auth']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -176,7 +176,7 @@ module TelstraTPN
         :auth_names => auth_names,
         :return_type => 'Array<Link>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: LinksApi#100_inventory_links_customer_by_customeruuid_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: LinksApi#inventory_links_customer_by_customeruuid_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -185,9 +185,9 @@ module TelstraTPN
     # Get Link history
     # @param linkid Unique identifier representing a specific link
     # @param [Hash] opts the optional parameters
-    # @return [Model100InventoryLinksHistoryResponse]
-    def 100_inventory_links_history_by_linkid_get(linkid, opts = {})
-      data, _status_code, _headers = 100_inventory_links_history_by_linkid_get_with_http_info(linkid, opts)
+    # @return [InventoryLinksHistoryResponse]
+    def inventory_links_history_by_linkid_get(linkid, opts = {})
+      data, _status_code, _headers = inventory_links_history_by_linkid_get_with_http_info(linkid, opts)
       return data
     end
 
@@ -195,14 +195,14 @@ module TelstraTPN
     # Get Link history
     # @param linkid Unique identifier representing a specific link
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Model100InventoryLinksHistoryResponse, Fixnum, Hash)>] Model100InventoryLinksHistoryResponse data, response status code and response headers
-    def 100_inventory_links_history_by_linkid_get_with_http_info(linkid, opts = {})
+    # @return [Array<(InventoryLinksHistoryResponse, Fixnum, Hash)>] InventoryLinksHistoryResponse data, response status code and response headers
+    def inventory_links_history_by_linkid_get_with_http_info(linkid, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: LinksApi.100_inventory_links_history_by_linkid_get ..."
+        @api_client.config.logger.debug "Calling API: LinksApi.inventory_links_history_by_linkid_get ..."
       end
       # verify the required parameter 'linkid' is set
       if @api_client.config.client_side_validation && linkid.nil?
-        fail ArgumentError, "Missing the required parameter 'linkid' when calling LinksApi.100_inventory_links_history_by_linkid_get"
+        fail ArgumentError, "Missing the required parameter 'linkid' when calling LinksApi.inventory_links_history_by_linkid_get"
       end
       # resource path
       local_var_path = "/1.0.0/inventory/links/history/{linkid}".sub('{' + 'linkid' + '}', linkid.to_s)
@@ -222,16 +222,16 @@ module TelstraTPN
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['auth']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Model100InventoryLinksHistoryResponse')
+        :return_type => 'InventoryLinksHistoryResponse')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: LinksApi#100_inventory_links_history_by_linkid_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: LinksApi#inventory_links_history_by_linkid_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

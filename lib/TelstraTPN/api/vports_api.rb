@@ -23,21 +23,21 @@ module TelstraTPN
     # Create VPort for physical endpoint
     # Create VPort representing a VLAN on a Physical Ethernet Port
     # @param [Hash] opts the optional parameters
-    # @option opts [Model100InventoryRegularvportRequest] :body 
-    # @return [Model100InventoryRegularvportResponse]
-    def 100_inventory_regularvport_post(opts = {})
-      data, _status_code, _headers = 100_inventory_regularvport_post_with_http_info(opts)
+    # @option opts [InventoryRegularvportRequest] :body 
+    # @return [InventoryRegularvportResponse]
+    def inventory_regularvport_post(opts = {})
+      data, _status_code, _headers = inventory_regularvport_post_with_http_info(opts)
       return data
     end
 
     # Create VPort for physical endpoint
     # Create VPort representing a VLAN on a Physical Ethernet Port
     # @param [Hash] opts the optional parameters
-    # @option opts [Model100InventoryRegularvportRequest] :body 
-    # @return [Array<(Model100InventoryRegularvportResponse, Fixnum, Hash)>] Model100InventoryRegularvportResponse data, response status code and response headers
-    def 100_inventory_regularvport_post_with_http_info(opts = {})
+    # @option opts [InventoryRegularvportRequest] :body 
+    # @return [Array<(InventoryRegularvportResponse, Fixnum, Hash)>] InventoryRegularvportResponse data, response status code and response headers
+    def inventory_regularvport_post_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: VportsApi.100_inventory_regularvport_post ..."
+        @api_client.config.logger.debug "Calling API: VportsApi.inventory_regularvport_post ..."
       end
       # resource path
       local_var_path = "/1.0.0/inventory/regularvport"
@@ -57,16 +57,16 @@ module TelstraTPN
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'body'])
-      auth_names = []
+      auth_names = ['auth']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Model100InventoryRegularvportResponse')
+        :return_type => 'InventoryRegularvportResponse')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VportsApi#100_inventory_regularvport_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: VportsApi#inventory_regularvport_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -74,21 +74,21 @@ module TelstraTPN
     # Create VNF VPort
     # Create VNF VPort
     # @param [Hash] opts the optional parameters
-    # @option opts [Model100InventoryVnfVportRequest] :body 
-    # @return [Model100InventoryVnfVportResponse]
-    def 100_inventory_vnf_vport_post(opts = {})
-      data, _status_code, _headers = 100_inventory_vnf_vport_post_with_http_info(opts)
+    # @option opts [InventoryVnfVportRequest] :body 
+    # @return [InventoryVnfVportResponse]
+    def inventory_vnf_vport_post(opts = {})
+      data, _status_code, _headers = inventory_vnf_vport_post_with_http_info(opts)
       return data
     end
 
     # Create VNF VPort
     # Create VNF VPort
     # @param [Hash] opts the optional parameters
-    # @option opts [Model100InventoryVnfVportRequest] :body 
-    # @return [Array<(Model100InventoryVnfVportResponse, Fixnum, Hash)>] Model100InventoryVnfVportResponse data, response status code and response headers
-    def 100_inventory_vnf_vport_post_with_http_info(opts = {})
+    # @option opts [InventoryVnfVportRequest] :body 
+    # @return [Array<(InventoryVnfVportResponse, Fixnum, Hash)>] InventoryVnfVportResponse data, response status code and response headers
+    def inventory_vnf_vport_post_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: VportsApi.100_inventory_vnf_vport_post ..."
+        @api_client.config.logger.debug "Calling API: VportsApi.inventory_vnf_vport_post ..."
       end
       # resource path
       local_var_path = "/1.0.0/inventory/vnf/vport"
@@ -108,16 +108,16 @@ module TelstraTPN
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'body'])
-      auth_names = []
+      auth_names = ['auth']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Model100InventoryVnfVportResponse')
+        :return_type => 'InventoryVnfVportResponse')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VportsApi#100_inventory_vnf_vport_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: VportsApi#inventory_vnf_vport_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -126,9 +126,9 @@ module TelstraTPN
     # Get information about the specified VPort
     # @param vportuuid Unique identifier representing a specific virtual port
     # @param [Hash] opts the optional parameters
-    # @return [EndpointPort]
-    def 100_inventory_vport_by_vportuuid_get(vportuuid, opts = {})
-      data, _status_code, _headers = 100_inventory_vport_by_vportuuid_get_with_http_info(vportuuid, opts)
+    # @return [Array<EndpointPort>]
+    def inventory_vport_by_vportuuid_get(vportuuid, opts = {})
+      data, _status_code, _headers = inventory_vport_by_vportuuid_get_with_http_info(vportuuid, opts)
       return data
     end
 
@@ -136,14 +136,14 @@ module TelstraTPN
     # Get information about the specified VPort
     # @param vportuuid Unique identifier representing a specific virtual port
     # @param [Hash] opts the optional parameters
-    # @return [Array<(EndpointPort, Fixnum, Hash)>] EndpointPort data, response status code and response headers
-    def 100_inventory_vport_by_vportuuid_get_with_http_info(vportuuid, opts = {})
+    # @return [Array<(Array<EndpointPort>, Fixnum, Hash)>] Array<EndpointPort> data, response status code and response headers
+    def inventory_vport_by_vportuuid_get_with_http_info(vportuuid, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: VportsApi.100_inventory_vport_by_vportuuid_get ..."
+        @api_client.config.logger.debug "Calling API: VportsApi.inventory_vport_by_vportuuid_get ..."
       end
       # verify the required parameter 'vportuuid' is set
       if @api_client.config.client_side_validation && vportuuid.nil?
-        fail ArgumentError, "Missing the required parameter 'vportuuid' when calling VportsApi.100_inventory_vport_by_vportuuid_get"
+        fail ArgumentError, "Missing the required parameter 'vportuuid' when calling VportsApi.inventory_vport_by_vportuuid_get"
       end
       # resource path
       local_var_path = "/1.0.0/inventory/vport/{vportuuid}".sub('{' + 'vportuuid' + '}', vportuuid.to_s)
@@ -163,16 +163,16 @@ module TelstraTPN
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['auth']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'EndpointPort')
+        :return_type => 'Array<EndpointPort>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VportsApi#100_inventory_vport_by_vportuuid_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: VportsApi#inventory_vport_by_vportuuid_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -23,19 +23,19 @@ module TelstraTPN
     # Get list of all the data centers
     # Get list of all the data centers
     # @param [Hash] opts the optional parameters
-    # @return [Array<Model100InventoryDatacentersResponse>]
-    def 100_inventory_datacenters_get(opts = {})
-      data, _status_code, _headers = 100_inventory_datacenters_get_with_http_info(opts)
+    # @return [Array<InventoryDatacentersResponse>]
+    def inventory_datacenters_get(opts = {})
+      data, _status_code, _headers = inventory_datacenters_get_with_http_info(opts)
       return data
     end
 
     # Get list of all the data centers
     # Get list of all the data centers
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<Model100InventoryDatacentersResponse>, Fixnum, Hash)>] Array<Model100InventoryDatacentersResponse> data, response status code and response headers
-    def 100_inventory_datacenters_get_with_http_info(opts = {})
+    # @return [Array<(Array<InventoryDatacentersResponse>, Fixnum, Hash)>] Array<InventoryDatacentersResponse> data, response status code and response headers
+    def inventory_datacenters_get_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DatacentresApi.100_inventory_datacenters_get ..."
+        @api_client.config.logger.debug "Calling API: DatacentresApi.inventory_datacenters_get ..."
       end
       # resource path
       local_var_path = "/1.0.0/inventory/datacenters"
@@ -55,16 +55,16 @@ module TelstraTPN
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['auth']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<Model100InventoryDatacentersResponse>')
+        :return_type => 'Array<InventoryDatacentersResponse>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DatacentresApi#100_inventory_datacenters_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DatacentresApi#inventory_datacenters_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
