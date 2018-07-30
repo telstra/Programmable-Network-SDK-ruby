@@ -4,13 +4,13 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**inventory_regularvport_post**](VportsApi.md#inventory_regularvport_post) | **POST** /1.0.0/inventory/regularvport | Create VPort for physical endpoint
-[**inventory_vnf_vport_post**](VportsApi.md#inventory_vnf_vport_post) | **POST** /1.0.0/inventory/vnf/vport | Create VNF VPort
-[**inventory_vport_by_vportuuid_get**](VportsApi.md#inventory_vport_by_vportuuid_get) | **GET** /1.0.0/inventory/vport/{vportuuid} | Get information about the specified VPort
+[**inventory_regularvport**](VportsApi.md#inventory_regularvport) | **POST** /1.0.0/inventory/regularvport | Create VPort for physical endpoint
+[**inventory_vnf_vport**](VportsApi.md#inventory_vnf_vport) | **POST** /1.0.0/inventory/vnf/vport | Create VNF VPort
+[**inventory_vport**](VportsApi.md#inventory_vport) | **GET** /1.0.0/inventory/vport/{vportuuid} | Get information about the specified VPort
 
 
-# **inventory_regularvport_post**
-> InventoryRegularvportResponse inventory_regularvport_post(opts)
+# **inventory_regularvport**
+> SuccessFragment inventory_regularvport(opts)
 
 Create VPort for physical endpoint
 
@@ -22,22 +22,21 @@ Create VPort representing a VLAN on a Physical Ethernet Port
 require 'TelstraTPN'
 # setup authorization
 TelstraTPN.configure do |config|
-  # Configure OAuth2 access token for authorization: auth
+  # Configure OAuth2 access token for authorization: oAuth2
   config.access_token = 'YOUR ACCESS TOKEN'
 end
 
 api_instance = TelstraTPN::VportsApi.new
-
-opts = { 
-  body: TelstraTPN::InventoryRegularvportRequest.new # InventoryRegularvportRequest | 
+opts = {
+  regvportrequest: TelstraTPN::Regvportrequest.new # Regvportrequest | 
 }
 
 begin
   #Create VPort for physical endpoint
-  result = api_instance.inventory_regularvport_post(opts)
+  result = api_instance.inventory_regularvport(opts)
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling VportsApi->inventory_regularvport_post: #{e}"
+  puts "Exception when calling VportsApi->inventory_regularvport: #{e}"
 end
 ```
 
@@ -45,15 +44,15 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InventoryRegularvportRequest**](InventoryRegularvportRequest.md)|  | [optional] 
+ **regvportrequest** | [**Regvportrequest**](Regvportrequest.md)|  | [optional] 
 
 ### Return type
 
-[**InventoryRegularvportResponse**](InventoryRegularvportResponse.md)
+[**SuccessFragment**](SuccessFragment.md)
 
 ### Authorization
 
-[auth](../README.md#auth)
+[oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 
@@ -62,10 +61,8 @@ Name | Type | Description  | Notes
 
 
 
-# **inventory_vnf_vport_post**
-> InventoryVnfVportResponse inventory_vnf_vport_post(opts)
-
-Create VNF VPort
+# **inventory_vnf_vport**
+> InlineResponse2008 inventory_vnf_vport(opts)
 
 Create VNF VPort
 
@@ -75,22 +72,21 @@ Create VNF VPort
 require 'TelstraTPN'
 # setup authorization
 TelstraTPN.configure do |config|
-  # Configure OAuth2 access token for authorization: auth
+  # Configure OAuth2 access token for authorization: oAuth2
   config.access_token = 'YOUR ACCESS TOKEN'
 end
 
 api_instance = TelstraTPN::VportsApi.new
-
-opts = { 
-  body: TelstraTPN::InventoryVnfVportRequest.new # InventoryVnfVportRequest | 
+opts = {
+  vportrequest: TelstraTPN::Vportrequest.new # Vportrequest | 
 }
 
 begin
   #Create VNF VPort
-  result = api_instance.inventory_vnf_vport_post(opts)
+  result = api_instance.inventory_vnf_vport(opts)
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling VportsApi->inventory_vnf_vport_post: #{e}"
+  puts "Exception when calling VportsApi->inventory_vnf_vport: #{e}"
 end
 ```
 
@@ -98,15 +94,15 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InventoryVnfVportRequest**](InventoryVnfVportRequest.md)|  | [optional] 
+ **vportrequest** | [**Vportrequest**](Vportrequest.md)|  | [optional] 
 
 ### Return type
 
-[**InventoryVnfVportResponse**](InventoryVnfVportResponse.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
-[auth](../README.md#auth)
+[oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 
@@ -115,10 +111,8 @@ Name | Type | Description  | Notes
 
 
 
-# **inventory_vport_by_vportuuid_get**
-> Array&lt;EndpointPort&gt; inventory_vport_by_vportuuid_get(vportuuid)
-
-Get information about the specified VPort
+# **inventory_vport**
+> EndpointPort inventory_vport(vportuuid)
 
 Get information about the specified VPort
 
@@ -128,21 +122,19 @@ Get information about the specified VPort
 require 'TelstraTPN'
 # setup authorization
 TelstraTPN.configure do |config|
-  # Configure OAuth2 access token for authorization: auth
+  # Configure OAuth2 access token for authorization: oAuth2
   config.access_token = 'YOUR ACCESS TOKEN'
 end
 
 api_instance = TelstraTPN::VportsApi.new
-
-vportuuid = "vportuuid_example" # String | Unique identifier representing a specific virtual port
-
+vportuuid = 'vportuuid_example' # String | Unique identifier representing a specific virtual port
 
 begin
   #Get information about the specified VPort
-  result = api_instance.inventory_vport_by_vportuuid_get(vportuuid)
+  result = api_instance.inventory_vport(vportuuid)
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling VportsApi->inventory_vport_by_vportuuid_get: #{e}"
+  puts "Exception when calling VportsApi->inventory_vport: #{e}"
 end
 ```
 
@@ -154,15 +146,15 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;EndpointPort&gt;**](EndpointPort.md)
+[**EndpointPort**](EndpointPort.md)
 
 ### Authorization
 
-[auth](../README.md#auth)
+[oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 

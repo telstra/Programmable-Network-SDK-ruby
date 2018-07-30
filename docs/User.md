@@ -3,9 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**useruuid** | **String** |  | 
-**status** | **String** |  | 
 **title** | **String** |  | [optional] 
+**useruuid** | **String** |  | 
 **usercountry** | **String** |  | [optional] 
 **emailaddress** | **String** |  | [optional] 
 **jobtitle** | **String** |  | [optional] 
@@ -15,5 +14,6 @@ Name | Type | Description | Notes
 **phonenumber** | **String** |  | [optional] 
 **phoneext** | **String** |  | [optional] 
 **phonetype** | **String** |  | [optional] 
+**status** | **String** |  | 
 
 

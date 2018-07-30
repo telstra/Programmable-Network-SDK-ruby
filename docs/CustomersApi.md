@@ -4,12 +4,12 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**account_by_customeruuid_get**](CustomersApi.md#account_by_customeruuid_get) | **GET** /1.0.0/account/{customeruuid} | Get account information details
-[**account_user_by_customeruuid_get**](CustomersApi.md#account_user_by_customeruuid_get) | **GET** /1.0.0/account/{customeruuid}/user | List users
+[**account**](CustomersApi.md#account) | **GET** /1.0.0/account/{customeruuid} | Get account information details
+[**account_user**](CustomersApi.md#account_user) | **GET** /1.0.0/account/{customeruuid}/user | List users
 
 
-# **account_by_customeruuid_get**
-> Array&lt;AccountResponse&gt; account_by_customeruuid_get(customeruuid)
+# **account**
+> InlineResponse20017 account(customeruuid)
 
 Get account information details
 
@@ -21,21 +21,19 @@ Get the account information for the specified customer
 require 'TelstraTPN'
 # setup authorization
 TelstraTPN.configure do |config|
-  # Configure OAuth2 access token for authorization: auth
+  # Configure OAuth2 access token for authorization: oAuth2
   config.access_token = 'YOUR ACCESS TOKEN'
 end
 
 api_instance = TelstraTPN::CustomersApi.new
-
-customeruuid = "customeruuid_example" # String | Unique identifier representing a specific customer
-
+customeruuid = 'customeruuid_example' # String | Unique identifier representing a specific customer
 
 begin
   #Get account information details
-  result = api_instance.account_by_customeruuid_get(customeruuid)
+  result = api_instance.account(customeruuid)
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling CustomersApi->account_by_customeruuid_get: #{e}"
+  puts "Exception when calling CustomersApi->account: #{e}"
 end
 ```
 
@@ -47,21 +45,21 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;AccountResponse&gt;**](AccountResponse.md)
+[**InlineResponse20017**](InlineResponse20017.md)
 
 ### Authorization
 
-[auth](../README.md#auth)
+[oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml, 
 
 
 
-# **account_user_by_customeruuid_get**
-> Array&lt;User&gt; account_user_by_customeruuid_get(customeruuid)
+# **account_user**
+> Array&lt;User&gt; account_user(customeruuid)
 
 List users
 
@@ -73,21 +71,19 @@ List all users associated with the specified customer
 require 'TelstraTPN'
 # setup authorization
 TelstraTPN.configure do |config|
-  # Configure OAuth2 access token for authorization: auth
+  # Configure OAuth2 access token for authorization: oAuth2
   config.access_token = 'YOUR ACCESS TOKEN'
 end
 
 api_instance = TelstraTPN::CustomersApi.new
-
-customeruuid = "customeruuid_example" # String | Unique identifier representing a specific customer
-
+customeruuid = 'customeruuid_example' # String | Unique identifier representing a specific customer
 
 begin
   #List users
-  result = api_instance.account_user_by_customeruuid_get(customeruuid)
+  result = api_instance.account_user(customeruuid)
   p result
 rescue TelstraTPN::ApiError => e
-  puts "Exception when calling CustomersApi->account_user_by_customeruuid_get: #{e}"
+  puts "Exception when calling CustomersApi->account_user: #{e}"
 end
 ```
 
@@ -103,11 +99,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+[oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 

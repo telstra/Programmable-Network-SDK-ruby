@@ -1,0 +1,40 @@
+# TelstraTPN::Image
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**brief_description** | **String** |  | [optional] 
+**buyers** | **String** |  | [optional] 
+**classifications** | [**Array&lt;ImageClassifications&gt;**](ImageClassifications.md) |  | [optional] 
+**comments** | **String** |  | [optional] 
+**create_at** | **Integer** |  | [optional] 
+**creator** | **String** |  | [optional] 
+**description** | **String** |  | [optional] 
+**eos** | **String** |  | [optional] 
+**flavors** | [**Array&lt;Flavor&gt;**](Flavor.md) |  | [optional] 
+**flavors_price** | **String** |  | [optional] 
+**glance_comments** | **String** |  | [optional] 
+**glance_image** | [**ImageGlanceImage**](ImageGlanceImage.md) |  | [optional] 
+**glance_name** | **String** |  | [optional] 
+**glance_properties** | **String** |  | [optional] 
+**id** | **Integer** |  | [optional] 
+**image_format** | **String** |  | [optional] 
+**license_required** | **BOOLEAN** |  | [optional] 
+**logo** | **String** |  | [optional] 
+**max_ports** | **Integer** |  | [optional] 
+**md5** | **String** |  | [optional] 
+**min_ports** | **Integer** |  | [optional] 
+**name** | **String** |  | [optional] 
+**os_version** | **String** |  | [optional] 
+**owner** | **String** |  | [optional] 
+**product** | [**ImageProduct**](ImageProduct.md) |  | [optional] 
+**publish_date** | **String** |  | [optional] 
+**restrict_vnc_console** | **BOOLEAN** |  | [optional] 
+**status** | **String** |  | [optional] 
+**support_hot_plug** | **BOOLEAN** |  | [optional] 
+**tags** | [**Array&lt;VnfTag&gt;**](VnfTag.md) |  | [optional] 
+**upload_at** | **Integer** |  | [optional] 
+**vendor_name** | **String** |  | [optional] 
+**zero_day_config_spec** | [**ImageZeroDayConfigSpec**](ImageZeroDayConfigSpec.md) |  | [optional] 
+
+

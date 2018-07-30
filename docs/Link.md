@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **linkid** | **String** | Identifier of a link | [optional] 
 **contracts** | [**Array&lt;Contract&gt;**](Contract.md) |  | [optional] 
 **tag** | **String** |  | [optional] 
-**connections** | **Array&lt;String&gt;** |  | [optional] 
+**connections** | [**Connections**](Connections.md) |  | [optional] 
 **type** | **String** |  | [optional] 
 **link_status** | **Integer** |  | [optional] 
 **billing_id** | **String** |  | [optional] 

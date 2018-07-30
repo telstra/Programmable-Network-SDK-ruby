@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **interfacesequence** | **Integer** |  | [optional] 
 **vporttype** | **String** |  | [optional] 
 **vportuuid** | **String** |  | [optional] 
-**vportvalue** | [**Vportvalue**](Vportvalue.md) |  | [optional] 
+**vportvalue** | [**RegvportrequestVportvalue**](RegvportrequestVportvalue.md) |  | [optional] 
 
 
